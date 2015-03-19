@@ -1,0 +1,2 @@
+Page remake django app
+======================
