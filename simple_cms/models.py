@@ -1,40 +1,43 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+import datetime
 
 class Service(models.Model):
     name = models.CharField(max_length=20, blank=False)
     logo = models.ImageField()
     link = models.URLField()
 
+    def __str__(self):
+        return self.name
+
 class User(models.Model):
     name = models.CharField(max_length=50, blank=False)
     surname = models.CharField(max_length=50, blank=False)
     mail = models.EmailField(blank=False)
-    service = models.ManyToManyField(Service, through='ServiceManager', through_fields=('user','service'))
+
+    def __str__(self):
+        return self.name + " " + self.surname
 
 class Image(models.Model):
     name = models.CharField(max_length=40)
     caption = models.CharField(max_length=150)
     image = models.ImageField()
 
-class Article(models.Model):
-    title = models.CharField(max_length=100, blank=False)
-    paragraphs = models.TextField()
-    images = models.ManyToManyField(Image, through='ImageManager', through_fields=('article','image'))
+    def __str__(self):
+        return self.name
 
 class View(models.Model):
     name = models.CharField(max_length=40, blank=False)
     description = models.CharField(max_length=150, blank=True)
-    background_images = models.ManyToManyField(Image)
-    articles = models.ManyToManyField(Article, through='ArticleManager', through_fields=('view','article'))
 
-class ServiceManager(models.Model):
-    user = models.ForeignKey(User)
-    service = models.ForeignKey(Service)
+    def __str__(self):
+        return self.name
 
-class ArticleManager(models.Model):
-    article = models.ForeignKey(Article)
+class Article(models.Model):
+    title = models.CharField(max_length=100, blank=False)
+    paragraphs = RichTextField()
     view = models.ForeignKey(View)
+    date = models.DateField(auto_now_add=True, blank=True)
 
-class ImageManager(models.Model):
-    article = models.ForeignKey(Article)
-    image = models.ForeignKey(Image)
+    def __str__(self):
+        return self.title
