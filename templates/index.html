@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mateusz Szynka</title>
+    <meta name="author" content="Mateusz Szynka">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="description" content="Programmer portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" media="all" href="../css/style.css">
+  </head>
+  <body ng-app>
+    <aside>
+      <nav>
+        <img id="face" src="images/face.jpg" alt="The Face" onclick="window.location = ''">
+        <h1 class="center" onclick="window.location = ''">Mateusz Szynka</h1>
+        <ul id="navigation" ng-controller="nav">
+          <li><a class="open">home</a></li>
+          <li><a>web</a></li>
+          <li><a>code</a></li>
+          <li><a>design</a></li>
+        </ul>
+        <div class="services">
+          <img class="service" src="images/icon1.svg" onclick="window.location='mailto:devmsw12@gmail.com'">
+          <img class="service" src="images/icon2.svg" onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
+        </div>
+      </nav>
+    </aside>
+    <div role="main" class="container" ng-controller="MainCtrl">
+      <article ng-repeat="article in articles">
+        <header><h2>{{ article.header }}</h2></header>
+        <p ng-repeat="paragraph in article.paragraphs">{{ paragraph }}</p>
+      </article>
+      <article> <!-- TODO main scroller -->
+        <header><h2>Article header</h2></header>
+        <p>{{ data }}</p>
+      </article>
+      <article>
+        <header><h2>Article header</h2></header>
+        <p>{{ data }}</p>
+      </article>
+      <article>
+        <header><h2>Article header</h2></header>
+        <p>{{ data }}</p>
+      </article>
+      <article>
+        <header><h2>Article header</h2></header>
+        <p>{{ data }}</p>
+      </article>
+    </div>
+    <footer>
+      &copy Mateusz Szynka 2015
+    </footer>
+  </body>
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <!--<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+  <!--<script type="text/javascript" src="js/jquery-ui.min.js"></script>-->
+  <script type="text/javascript" src="js/scripts.js"></script>
+</html>

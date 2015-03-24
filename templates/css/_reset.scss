@@ -1,0 +1,13 @@
+@import "bourbon/bourbon";
+
+html,
+body,
+div,
+img,
+footer,
+header,
+nav {
+   margin: 0;
+   padding: 0;
+   @include user-select(none);
+}

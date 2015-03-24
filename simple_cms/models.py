@@ -5,7 +5,7 @@ import datetime
 class Service(models.Model):
     name = models.CharField(max_length=20, blank=False)
     logo = models.ImageField()
-    link = models.URLField()
+    link = models.CharField(max_length=80, blank=False)
 
     def __str__(self):
         return self.name
@@ -27,8 +27,10 @@ class Image(models.Model):
         return self.name
 
 class View(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=40, blank=False)
     description = models.CharField(max_length=150, blank=True)
+    enabled = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -36,7 +38,7 @@ class View(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100, blank=False)
     paragraphs = RichTextField()
-    view = models.ForeignKey(View)
+    view = models.ForeignKey(View, default='home',)
     date = models.DateField(auto_now_add=True, blank=True)
 
     def __str__(self):

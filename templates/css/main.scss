@@ -1,0 +1,33 @@
+@import "bourbon/bourbon";
+@import "aside";
+@import "fonts";
+@import "colors";
+
+div[role=main] {
+   position: absolute;
+   top: 0;
+   background: url("../images/background1.png");
+   height: 100%;
+   overflow: scroll;
+   padding: 2% 5% 0 5%;
+   /* width: TODO get page width -= $header-max-width */
+   article {
+      font-style: $font-stack;
+      font-size: $font-size;
+      color: $primary-text-color;
+      padding: 10px;
+      margin: 0 0 10px 0;
+      header {
+         margin: 0;
+         padding: 0;
+         h2 {
+            margin: 0;
+            padding: 0 0 10px 0;
+         }
+      }
+      p {
+         padding: 0 0 0 5px;
+         text-indent: 5%;
+      }
+   }
+}
