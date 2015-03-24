@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="description" content="Programmer portfolio">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" media="all" href="../css/style.css">
+    {% load staticfiles %}
+    <link rel="stylesheet" media="all" href="{% static 'thePage/css/style.css' %}">
   </head>
   <body ng-app>
     <aside>
       <nav>
-        <img id="face" src="images/face.jpg" alt="The Face" onclick="window.location = ''">
+        <img id="face" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face" onclick="window.location = ''">
         <h1 class="center" onclick="window.location = ''">Mateusz Szynka</h1>
         <ul id="navigation" ng-controller="nav">
           <li><a class="open">home</a></li>
@@ -21,8 +22,8 @@
           <li><a>design</a></li>
         </ul>
         <div class="services">
-          <img class="service" src="images/icon1.svg" onclick="window.location='mailto:devmsw12@gmail.com'">
-          <img class="service" src="images/icon2.svg" onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
+          <img class="service" src="../simple_cms/static/thePage/images/icon1.svg" onclick="window.location='mailto:devmsw12@gmail.com'">
+          <img class="service" src="../simple_cms/static/thePage/images/icon2.svg" onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
         </div>
       </nav>
     </aside>
