@@ -13,17 +13,20 @@
   <body ng-app>
     <aside>
       <nav>
-        <img id="face" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face" onclick="window.location = ''">
-        <h1 class="center" onclick="window.location = ''">Mateusz Szynka</h1>
+        <img id="face" style="visibility: hidden;" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face" onclick="window.location = ''">
+        <h1 class="center" onclick="window.location = ''">{{ user }}</h1>
         <ul id="navigation" ng-controller="nav">
-          <li><a class="open">home</a></li>
+          {% for item in menu %}
+              <li><a>{{ item.name }}</a></li>
+          {% endfor %}
+          <!--<li><a class="open">home</a></li>
           <li><a>web</a></li>
           <li><a>code</a></li>
-          <li><a>design</a></li>
+          <li><a>design</a></li>-->
         </ul>
         <div class="services">
-          <img class="service" src="../simple_cms/static/thePage/images/icon1.svg" onclick="window.location='mailto:devmsw12@gmail.com'">
-          <img class="service" src="../simple_cms/static/thePage/images/icon2.svg" onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
+          <img class="service" src="{%  static 'thePage/images/icon1.svg' %}" onclick="window.location='mailto:devmsw12@gmail.com'">
+          <img class="service" src="{%  static 'thePage/images/icon2.svg' %}" onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
         </div>
       </nav>
     </aside>
@@ -32,19 +35,19 @@
         <header><h2>{{ article.header }}</h2></header>
         <p ng-repeat="paragraph in article.paragraphs">{{ paragraph }}</p>
       </article>
-      <article> <!-- TODO main scroller -->
+      <article class="center"> <!-- TODO main scroller -->
         <header><h2>Article header</h2></header>
         <p>{{ data }}</p>
       </article>
-      <article>
+      <article class="center">
         <header><h2>Article header</h2></header>
         <p>{{ data }}</p>
       </article>
-      <article>
+      <article class="center">
         <header><h2>Article header</h2></header>
         <p>{{ data }}</p>
       </article>
-      <article>
+      <article class="center">
         <header><h2>Article header</h2></header>
         <p>{{ data }}</p>
       </article>
@@ -53,8 +56,8 @@
       &copy Mateusz Szynka 2015
     </footer>
   </body>
-  <script type="text/javascript" src="js/angular.min.js"></script>
-  <!--<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
-  <!--<script type="text/javascript" src="js/jquery-ui.min.js"></script>-->
-  <script type="text/javascript" src="js/scripts.js"></script>
+  <script type="text/javascript" src="{%  static 'thePage/js/angular.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'thePage/js/jquery-1.10.2.min.js' %}"></script>
+  <!--<script type="text/javascript" src="{%  static 'thePage/js/jquery-ui.min.js' %}"></script>-->
+  <script type="text/javascript" src="{%  static 'thePage/js/scripts.js' %}"></script>
 </html>

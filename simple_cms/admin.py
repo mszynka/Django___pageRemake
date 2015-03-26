@@ -26,7 +26,7 @@ class ViewAdmin(admin.ModelAdmin):
     inlines = [ArticleInLine]
     ordering = ('id',)
 
-admin.site.register(User, UserAdmin)
+admin.site.register(Userss, UserAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Image, ImageAdmin)
 admin.site.register(Article, ArticleAdmin)

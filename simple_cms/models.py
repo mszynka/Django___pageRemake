@@ -10,10 +10,13 @@ class Service(models.Model):
     def __str__(self):
         return self.name
 
-class User(models.Model):
+class Userss(models.Model):
     name = models.CharField(max_length=50, blank=False)
     surname = models.CharField(max_length=50, blank=False)
     mail = models.EmailField(blank=False)
+
+    def getName(self):
+        return self.name + " " + self.surname
 
     def __str__(self):
         return self.name + " " + self.surname
@@ -38,7 +41,7 @@ class View(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100, blank=False)
     paragraphs = RichTextField()
-    view = models.ForeignKey(View, default='home',)
+    view = models.ForeignKey(View, default=1)
     date = models.DateField(auto_now_add=True, blank=True)
 
     def __str__(self):
