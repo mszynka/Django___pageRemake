@@ -14,7 +14,7 @@
     <aside>
       <nav>
         <img id="face" style="visibility: hidden;" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face" onclick="window.location = ''">
-        <h1 class="center" onclick="window.location = ''">{{ user }}</h1>
+        <h1 class="center" onclick="window.location = ''">{{ name }}</h1>
         <ul id="navigation" ng-controller="nav">
           {% for item in menu %}
               <li><a>{{ item.name }}</a></li>
@@ -25,36 +25,31 @@
           <li><a>design</a></li>-->
         </ul>
         <div class="services">
+          {% for service in services %}
+            <img class="service" src="{{ service.logo }}" onclick="{{ service.link }}" alt="{{ service.name }}">
+          {% endfor %}
           <img class="service" src="{%  static 'thePage/images/icon1.svg' %}" onclick="window.location='mailto:devmsw12@gmail.com'">
           <img class="service" src="{%  static 'thePage/images/icon2.svg' %}" onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
         </div>
       </nav>
     </aside>
     <div role="main" class="container" ng-controller="MainCtrl">
-      <article ng-repeat="article in articles">
+      <!--<article ng-repeat="article in articles">
         <header><h2>{{ article.header }}</h2></header>
         <p ng-repeat="paragraph in article.paragraphs">{{ paragraph }}</p>
-      </article>
+      </article>-->
       <article class="center"> <!-- TODO main scroller -->
-        <header><h2>Article header</h2></header>
-        <p>{{ data }}</p>
-      </article>
-      <article class="center">
-        <header><h2>Article header</h2></header>
-        <p>{{ data }}</p>
-      </article>
-      <article class="center">
-        <header><h2>Article header</h2></header>
-        <p>{{ data }}</p>
-      </article>
-      <article class="center">
-        <header><h2>Article header</h2></header>
-        <p>{{ data }}</p>
+      {% if articles %}
+        {% for article in articles %}
+        <header><h2>{{ article.title }}</h2>{{ article.date }}</header>
+        <p>{{ article.paragraphs }}</p>
+        {% endfor %}
+      {% else %}
+        <header><h2>No articles available for this view!</h2></header>
+      {% endif %}
       </article>
     </div>
-    <footer>
-      &copy Mateusz Szynka 2015
-    </footer>
+    <footer>&copy Mateusz Szynka 2015</footer>
   </body>
   <script type="text/javascript" src="{%  static 'thePage/js/angular.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'thePage/js/jquery-1.10.2.min.js' %}"></script>
