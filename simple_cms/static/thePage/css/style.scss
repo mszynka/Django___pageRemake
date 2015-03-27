@@ -5,19 +5,27 @@
 @import "scrollbar";
 @import "center";
 @import "aside";
-@import "navigation";
 @import "loading-bar";
 @import "footer";
-@import "loading-bar";
 @import "main";
 
+html {
+   height: 100%;
+}
+
 body {
+   height: 100%;
    font: $font-size $font-stack;
    background: $primary-backgroud;
    overflow: hidden;
+   display: table;
 }
 
 .container {
-   padding: 1%;
-   margin: 0 0 0 $header-max-width;
+   display: table-row;
+}
+
+#{$a-open, $a-base} {
+   text-decoration: underline;
+   color: $primary-text-color;
 }

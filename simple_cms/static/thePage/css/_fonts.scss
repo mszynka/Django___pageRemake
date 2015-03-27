@@ -1,10 +1,18 @@
 @import "bourbon/bourbon";
 
-$font-stack: Aller sans-serif;
+$font-stack: Sansation, sans-serif;
 $font-size: 12pt;
 
-$a-base: "a, a:visited";
+$a-base: "a, a:visited, a:link";
 $a-hovers: "a:hover, a:active";
 $a-open: "a.open, a:hover";
 
 @include font-face("Aller", "fonts/AllerDisplay");
+
+@include font-face("Sansation", "fonts/Sansation-Regular");
+
+@include font-face("Sansation Bold", "fonts/Sansation-Bold");
+
+@include font-face("Sansation Italic", "fonts/Sansation-Italic");
+
+@include font-face("Sansation Light", "fonts/Sansation-Light");

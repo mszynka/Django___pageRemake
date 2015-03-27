@@ -6,24 +6,40 @@
 $header-max-width: 220px;
 
 aside {
-   max-width: $header-max-width;
+   width: $header-max-width;
    height: 100%;
-   display: block;
+   float: left;
    background: $primary-backgroud;
-   /*min-height: 600px;*/
+   display: table-cell;
    overflow: hidden;
-   position: absolute;
-   z-index: 2;
    color: #fff;
+   .services {
+      position: absolute;
+      bottom: 10px;
+      width: $header-max-width;
+      $aside-services-padding: 10px;
+      padding: $aside-services-padding 0 0 0;
+      margin: 0 0 $aside-services-padding 0;
+      @include display(flex);
+      @include flex-direction(row);
+      @include flex-wrap(nowrap);
+      @include justify-content(center);
+      @include align-content(center);
+      img {
+         max-height: 35px;
+         max-width: 35px;
+         padding: 10px;
+         cursor: pointer;
+      }
+   }
    nav {
       position: relative;
       top: 50%;
       left: 0;
       -webkit-transform: translate(0, -50%);
       transform: translate(0, -50%);
-      width: 220px;
-      max-height: 100%;
-      min-height: 100%;
+      width: $header-max-width;
+      height: 100%;
       padding: 0px 0px;
       background: #343638;
       #face {
@@ -35,25 +51,6 @@ aside {
          padding-top: 30px;
          margin-left: auto;
          margin-right: auto;
-      }
-      .services {
-         position: absolute;
-         bottom: 10px;
-         width: $header-max-width;
-         $aside-services-padding: 10px;
-         padding: $aside-services-padding 0 0 0;
-         margin: 0 0 $aside-services-padding 0;
-         @include display(flex);
-         @include flex-direction(row);
-         @include flex-wrap(nowrap);
-         @include justify-content(center);
-         @include align-content(center);
-         img {
-            max-height: 35px;
-            max-width: 35px;
-            padding: 10px;
-            cursor: pointer;
-         }
       }
       h1 {
          font-family: 'ABeeZee', 'Trebuchet MS', Arial, sans-serif;
@@ -67,6 +64,34 @@ aside {
          background-clip: text;
          text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
          cursor: default;
+      }
+      ul {
+         list-style: none;
+         padding: 0;
+         li {
+            display: block;
+            margin: 0 0 2px 0;
+            padding: 0;
+            font-size: 1.4em;
+            font-weight: bold;
+            cursor: pointer;
+            @include user-select(none);
+            a {
+               display: block;
+               margin-left: 0;
+               padding: 8px 0px 8px 0px;
+               padding-left: 0;
+               width: 100%;
+               color: $secondary-text-color;
+               text-decoration: none;
+               text-align: center;
+            }
+            #{$a-open} {
+               color: #fff;
+               background: $secondary-hover-color;
+               text-decoration: none;
+            }
+         }
       }
    }
 }
