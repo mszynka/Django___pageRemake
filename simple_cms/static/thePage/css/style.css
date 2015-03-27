@@ -1036,13 +1036,13 @@ aside {
   font-weight: normal;
   src: url("fonts/AllerDisplay.eot?#iefix") format("embedded-opentype"), url("fonts/AllerDisplay.woff2") format("woff2"), url("fonts/AllerDisplay.woff") format("woff"), url("fonts/AllerDisplay.ttf") format("truetype"), url("fonts/AllerDisplay.svg#Aller") format("svg"); }
 div[role=main] {
-  position: absolute;
-  top: 0;
-  background: url("../images/background1.png");
-  height: 100%;
-  overflow: scroll;
-  padding: 30px 30px 0 30px;
-  /* width: TODO get page width -= $header-max-width */ }
+	position: absolute;
+	top: 0;
+	background: url("../images/background1.png");
+	height: 100%;
+	overflow: scroll;
+	padding: 30px 30px 0 30px;
+}
   div[role=main] article {
     font-style: Aller sans-serif;
     font-size: 12pt;

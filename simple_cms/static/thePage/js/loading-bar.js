@@ -247,7 +247,7 @@ angular.module('cfp.loadingBar', [])
 
         var rnd = 0;
 
-        // TODO: do this mathmatically instead of through conditions
+        // : do this mathmatically instead of through conditions
 
         var stat = _status();
         if (stat >= 0 && stat < 0.25) {

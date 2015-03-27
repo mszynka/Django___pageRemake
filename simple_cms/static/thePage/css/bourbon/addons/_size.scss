@@ -27,7 +27,7 @@
 ///     height: 10em;
 ///   }
 ///
-/// @todo Refactor in 5.0.0 to use a comma-separated argument
+/// @Refactor in 5.0.0 to use a comma-separated argument
 
 @mixin size($value) {
   $width: nth($value, 1);
