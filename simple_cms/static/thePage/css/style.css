@@ -142,6 +142,16 @@ nav {
   font-style: normal;
   font-weight: normal;
   src: url("fonts/Sansation-Light.eot?#iefix") format("embedded-opentype"), url("fonts/Sansation-Light.woff2") format("woff2"), url("fonts/Sansation-Light.woff") format("woff"), url("fonts/Sansation-Light.ttf") format("truetype"), url("fonts/Sansation-Light.svg#Sansation Light") format("svg"); }
+@font-face {
+  font-family: "Tino";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino.eot?#iefix") format("embedded-opentype"), url("fonts/Tino.woff2") format("woff2"), url("fonts/Tino.woff") format("woff"), url("fonts/Tino.ttf") format("truetype"), url("fonts/Tino.svg#Tino") format("svg"); }
+@font-face {
+  font-family: "Tino Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino Medium.eot?#iefix") format("embedded-opentype"), url("fonts/Tino Medium.woff2") format("woff2"), url("fonts/Tino Medium.woff") format("woff"), url("fonts/Tino Medium.ttf") format("truetype"), url("fonts/Tino Medium.svg#Tino Medium") format("svg"); }
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px; }
@@ -298,6 +308,16 @@ nav {
   font-style: normal;
   font-weight: normal;
   src: url("fonts/Sansation-Light.eot?#iefix") format("embedded-opentype"), url("fonts/Sansation-Light.woff2") format("woff2"), url("fonts/Sansation-Light.woff") format("woff"), url("fonts/Sansation-Light.ttf") format("truetype"), url("fonts/Sansation-Light.svg#Sansation Light") format("svg"); }
+@font-face {
+  font-family: "Tino";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino.eot?#iefix") format("embedded-opentype"), url("fonts/Tino.woff2") format("woff2"), url("fonts/Tino.woff") format("woff"), url("fonts/Tino.ttf") format("truetype"), url("fonts/Tino.svg#Tino") format("svg"); }
+@font-face {
+  font-family: "Tino Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino Medium.eot?#iefix") format("embedded-opentype"), url("fonts/Tino Medium.woff2") format("woff2"), url("fonts/Tino Medium.woff") format("woff"), url("fonts/Tino Medium.ttf") format("truetype"), url("fonts/Tino Medium.svg#Tino Medium") format("svg"); }
 @-webkit-keyframes loading-bar-spinner {
   0% {
     -webkit-transform: rotate(0deg);
@@ -418,10 +438,11 @@ aside {
       margin-left: auto;
       margin-right: auto; }
     aside nav h1 {
-      font-family: 'ABeeZee', 'Trebuchet MS', Arial, sans-serif;
-      font-size: 24pt;
+      font-family: "Tino Medium", sans-serif;
+      /*font-family: 'ABeeZee', 'Trebuchet MS', Arial, sans-serif;*/
+      font-size: 20.4pt;
       line-height: 1.3em;
-      font-weight: bold;
+      font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 11px;
       margin-left: 0;
@@ -617,6 +638,16 @@ aside {
   font-style: normal;
   font-weight: normal;
   src: url("fonts/Sansation-Light.eot?#iefix") format("embedded-opentype"), url("fonts/Sansation-Light.woff2") format("woff2"), url("fonts/Sansation-Light.woff") format("woff"), url("fonts/Sansation-Light.ttf") format("truetype"), url("fonts/Sansation-Light.svg#Sansation Light") format("svg"); }
+@font-face {
+  font-family: "Tino";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino.eot?#iefix") format("embedded-opentype"), url("fonts/Tino.woff2") format("woff2"), url("fonts/Tino.woff") format("woff"), url("fonts/Tino.ttf") format("truetype"), url("fonts/Tino.svg#Tino") format("svg"); }
+@font-face {
+  font-family: "Tino Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino Medium.eot?#iefix") format("embedded-opentype"), url("fonts/Tino Medium.woff2") format("woff2"), url("fonts/Tino Medium.woff") format("woff"), url("fonts/Tino Medium.ttf") format("truetype"), url("fonts/Tino Medium.svg#Tino Medium") format("svg"); }
 footer {
   display: none; }
 
@@ -750,6 +781,16 @@ footer {
   font-style: normal;
   font-weight: normal;
   src: url("fonts/Sansation-Light.eot?#iefix") format("embedded-opentype"), url("fonts/Sansation-Light.woff2") format("woff2"), url("fonts/Sansation-Light.woff") format("woff"), url("fonts/Sansation-Light.ttf") format("truetype"), url("fonts/Sansation-Light.svg#Sansation Light") format("svg"); }
+@font-face {
+  font-family: "Tino";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino.eot?#iefix") format("embedded-opentype"), url("fonts/Tino.woff2") format("woff2"), url("fonts/Tino.woff") format("woff"), url("fonts/Tino.ttf") format("truetype"), url("fonts/Tino.svg#Tino") format("svg"); }
+@font-face {
+  font-family: "Tino Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino Medium.eot?#iefix") format("embedded-opentype"), url("fonts/Tino Medium.woff2") format("woff2"), url("fonts/Tino Medium.woff") format("woff"), url("fonts/Tino Medium.ttf") format("truetype"), url("fonts/Tino Medium.svg#Tino Medium") format("svg"); }
 @-webkit-keyframes loading-bar-spinner {
   0% {
     -webkit-transform: rotate(0deg);
@@ -870,10 +911,11 @@ aside {
       margin-left: auto;
       margin-right: auto; }
     aside nav h1 {
-      font-family: 'ABeeZee', 'Trebuchet MS', Arial, sans-serif;
-      font-size: 24pt;
+      font-family: "Tino Medium", sans-serif;
+      /*font-family: 'ABeeZee', 'Trebuchet MS', Arial, sans-serif;*/
+      font-size: 20.4pt;
       line-height: 1.3em;
-      font-weight: bold;
+      font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 11px;
       margin-left: 0;
@@ -969,6 +1011,16 @@ aside {
   font-style: normal;
   font-weight: normal;
   src: url("fonts/Sansation-Light.eot?#iefix") format("embedded-opentype"), url("fonts/Sansation-Light.woff2") format("woff2"), url("fonts/Sansation-Light.woff") format("woff"), url("fonts/Sansation-Light.ttf") format("truetype"), url("fonts/Sansation-Light.svg#Sansation Light") format("svg"); }
+@font-face {
+  font-family: "Tino";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino.eot?#iefix") format("embedded-opentype"), url("fonts/Tino.woff2") format("woff2"), url("fonts/Tino.woff") format("woff"), url("fonts/Tino.ttf") format("truetype"), url("fonts/Tino.svg#Tino") format("svg"); }
+@font-face {
+  font-family: "Tino Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Tino Medium.eot?#iefix") format("embedded-opentype"), url("fonts/Tino Medium.woff2") format("woff2"), url("fonts/Tino Medium.woff") format("woff"), url("fonts/Tino Medium.ttf") format("truetype"), url("fonts/Tino Medium.svg#Tino Medium") format("svg"); }
 main {
   height: 100%;
   display: table-cell; }
