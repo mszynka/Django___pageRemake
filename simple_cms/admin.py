@@ -1,8 +1,6 @@
 from django.contrib import admin
 from simple_cms.models import *
 
-# TODO tidy up
-
 class ArticleInLine(admin.TabularInline):
     model = Article
     max_num = 0
@@ -19,7 +17,6 @@ class ImageAdmin(admin.ModelAdmin):
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title','view','date')
-    # TODO exclude = (view.enabled = False)
 
 class ViewAdmin(admin.ModelAdmin):
     list_display = ('id','name','description','enabled')

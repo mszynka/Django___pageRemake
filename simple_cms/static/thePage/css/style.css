@@ -1042,7 +1042,7 @@ div[role=main] {
   height: 100%;
   overflow: scroll;
   padding: 30px 30px 0 30px;
-  /* width: TODO get page width -= $header-max-width */ }
+ }
   div[role=main] article {
     font-style: Aller sans-serif;
     font-size: 12pt;
