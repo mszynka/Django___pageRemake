@@ -1,0 +1,35 @@
+{% extends 'blogbase.html' %}
+{% block title %}Welcome to my blog{% endblock %}
+
+{% block content %}
+	<aside>
+		<h2>Categories</h2>
+    {% if categories %}
+      <ul>
+      {% for category in categories %}
+        <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>There are no posts.</p>
+    {% endif %}
+	</aside>
+
+	<main>
+		<h2>Posts</h2>
+    {% if posts %}
+      <ul>
+      {% for post in posts %}
+        <article>
+	        <heading><h4>{{ post.title }}</h4></heading>
+	        <p>{{ post.text|safe|truncatewords:"50"|linebreaks }}</p>
+	        <a href="{{ post.get_absolute_url }}">read more</a>
+	      </article>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>There are no posts.</p>
+    {% endif %}
+	</main>
+
+{% endblock %}

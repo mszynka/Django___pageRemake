@@ -1,0 +1,9 @@
+{% extends 'blogbase.html' %}
+{% block head_title %}{{ post.title }}{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block breadcrumbs %}<a href="../category/{{ post.category.slug }}">{{ post.category }}</a>{% endblock %}
+
+{% block content %}
+    {{ post.text }}
+{% endblock %}

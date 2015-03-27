@@ -1,14 +1,14 @@
 from django.db import models
 from django.db.models import permalink
 
-class Blog(models.Model):
-    title = models.CharField(max_length=150)
+class Post(models.Model):
+    title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True)
     text = models.TextField()
     date = models.DateField(db_index=True, auto_now_add=True)
     category = models.ForeignKey('blog.Category')
 
-    def __unicode__(self):
+    def __str__(self):
         return '%s' % self.title
 
     @permalink
@@ -16,10 +16,10 @@ class Blog(models.Model):
         return ('view_blog_post',None, { 'slug': self.slug })
 
 class Category(models.Model):
-    title = models.CharField(max_length=150)
+    title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return '%s' % self.title
 
     @permalink
