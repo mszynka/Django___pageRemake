@@ -16,21 +16,22 @@
 		    </div>
 		    <nav class="right">
 			    <ul>
-				    <li><a href="/blog/">Home</a></li>
-				    <li><a href="/blog/categories">Categories</a></li>
-				    <li><a href="/blog/tags">Tags</a></li>
+				    <li class="{% if nav_home %}active{% endif %}"><a href="/blog/">Home</a></li>
+				    <li class="{% if nav_cat %}active{% endif %}"><a href="/blog/categories">Categories</a></li>
+				    <li class="{% if nav_tags %}active{% endif %}"><a href="/blog/tags">Tags</a></li>
 			    </ul>
 		    </nav>
         </div>
     </header>
+    <div class="breadcrumbs container shadow">
+	    <a href="/blog/">Home</a>
+	    {% block breadcrumbs %}{% endblock %}
+	</div>
     <main class="container shadow">
-	    <div class="breadcrumbs">
-	        <a href="/blog/">Home</a>
-		    {% block breadcrumbs %}{% endblock %}
-	    </div>
-	    <h1>{% block title %}Welcome to my blog{% endblock %}</h1>
+	    <h1 class="center">{% block title %}Welcome to my blog{% endblock %}</h1>
 	    {% block content %}
 	    {% endblock %}
     </main>
+    <div class="bottom-spacer"></div>
 	</body>
 </html>

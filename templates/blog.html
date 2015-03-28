@@ -15,37 +15,40 @@
       <p>There are no posts.</p>
     {% endif %}
 	</aside>{% endcomment %}
-
+	<hr/>
 	<main>
 		<h2>Posts</h2>
     {% if posts %}
       {% for post in posts %}
         <article>
 	        <heading><h4>{{ post.title }}</h4>
-		        <div class="flex-inline">
+		        <span class="flex-inline">
 			        {% comment %}{% for %}
 				        <a href="{{ tag.get_absolute_url }}">tag.name</a>
 				    {% endfor %}{% endcomment %}
-		        </div>
+		        </span>
 		    </heading>
 	        <p>{{ post.text|safe|truncatewords:"50"|linebreaks }}</p>
 	        <a href="{{ post.get_absolute_url }}">read more</a>
 	      </article>
+	      <hr/>
       {% endfor %}
 
+	  {% if posts.paginator.num_pages > 1 %}
 	  <div class="pagination center">
 	     <span class="step-links">
-	       {% if posts.has_previous %}
-	         <a href="?page={{ posts.previous_page_number }}">previous</a>
-	       {% endif %}
+	       <a href="{% if posts.has_previous %}?page={{ posts.previous_page_number }}{% endif %}">
+		       <button class="{% if posts.has_previous %}enabled{% endif %}"> < </button>
+	       </a>
            <span class="current">
-             Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+             <input value="{{ posts.number }}/{{ posts.paginator.num_pages }}" readonly>
            </span>
-           {% if posts.has_next %}
-             <a href="?page={{  posts.next_page_number }}">next</a>
-           {% endif %}
+           <a href="{% if posts.has_next %}?page={{  posts.next_page_number }}{% endif %}">
+	           <button class="{% if posts.has_next %}enabled{% endif %}"> > </button>
+           </a>
          </span>
 	   </div>
+	   {% endif %}
 
     {% else %}
       <p>There are no posts.</p>
@@ -54,14 +57,20 @@
 	<section>
 		<h2>Tags</h2>
 		{%  if tags %}
-			<ul>
+			<div class="container">
 				{% for tag in tags %}
-					<li><a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a></li>
+					<a class="tag" href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
 				{% endfor %}
-			</ul>
+			</div>
+			<br><br>
 		{% else %}
 			<p>There are no tags.</p>
 		{% endif %}
 	</section>
+
+	<footer>
+		<hr/>
+		&copy <a href="mszynka.pl">Mateusz Szynka</a> {% now "Y" %}
+	</footer>
 	</main>
 {% endblock %}

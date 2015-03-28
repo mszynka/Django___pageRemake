@@ -16,6 +16,7 @@ def index(request):
 		posts_on_page = paginator.page(paginator.num_pages)
 
 	return render_to_response('blog.html', {
+		'nav_home': True,
 		'categories': Category.objects.all(),
 	    'tags': Tag.objects.all(),
 	  'posts': posts_on_page,
@@ -54,6 +55,7 @@ def view_categories(request):
 	for category in categories:
 		category.post_count = Post.objects.filter(category=category).count()
 	return render_to_response('view_categories.html', {
+		'nav_cat': True,
 		'categories': categories,
 	    'blog_title': BlogSettings.objects.filter(attribute='blog-title').get().value
 	})
@@ -83,6 +85,7 @@ def view_tags(request):
 	for tag in tags:
 		tag.post_count = Post.objects.filter(tags=tag).count()
 	return render_to_response('view_tags.html', {
+		'nav_tags': True,
 		'tags': tags,
 	    'blog_title': BlogSettings.objects.filter(attribute='blog-title').get().value
 	})
