@@ -1,6 +1,8 @@
 html,
 body,
 div,
+ul,
+li,
 img,
 footer,
 header,
@@ -10,11 +12,18 @@ article {
   margin: 0;
   padding: 0; }
 
+html,
 body {
-  background: #EBF0FF; }
+  height: 100%; }
+
+@font-face {
+  font-family: "Data Control";
+  src: url("../fonts/data-latin.ttf"); }
+body {
+  background: linear-gradient(#ddd, #eeeeee); }
 
 header {
-  background: #5578FD; }
+  background: linear-gradient(#0074D9, #2296fb); }
   header .container {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -25,16 +34,70 @@ header {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between; }
+    header .container .left h3 {
+      font-family: "Data Control", sans-serif; }
+    header .container .left #logo::before {
+      content: "</>"; }
+    header .container .right ul {
+      height: 100%;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      text-decoration: none;
+      list-style-type: none; }
+      header .container .right ul li {
+        padding: 0 5px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        header .container .right ul li a {
+          text-decoration: none; }
+
+a {
+  color: #767676; }
+
+main {
+  background: #f4f4f4; }
+  main .breadcrumbs a {
+    text-decoration: none; }
+  main .breadcrumbs a:not(:first-child)::before {
+    content: " | "; }
+  main .breadcrumbs a:first-child {
+    content: " "; }
 
 .shadow {
   box-shadow: 0 3px 10px #ccc; }
 
+.center {
+  text-align: center; }
+
 @media all and (min-width: 1100px) and (orientation: landscape) {
+  @font-face {
+    font-family: "Data Control";
+    src: url("../fonts/data-latin.ttf"); }
   .container {
-    width: 1100px;
+    max-width: 1040px;
+    width: 95%;
     margin: 0 auto; }
 
   main {
-    padding: 10px 30px; } }
+    padding: 10px 20px; } }
+@media all and (max-width: 1099px) and (min-width: 650px) and (orientation: landscape) {
+  @font-face {
+    font-family: "Data Control";
+    src: url("../fonts/data-latin.ttf"); }
+  .container {
+    max-width: 1050px;
+    width: 90%;
+    margin: 0 auto; }
+
+  main {
+    padding: 8px 23px; } }
 
 /*# sourceMappingURL=style.css.map */

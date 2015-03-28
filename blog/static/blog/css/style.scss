@@ -4,11 +4,11 @@
 @import "sizes";
 
 body {
-   background: $primary-background;
+   background: linear-gradient($primary-background, $dark-primary-background);
 }
 
 header {
-   background: $secondary-background;
+   background: linear-gradient($dark-secondary-background, $secondary-background);
    .container {
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -19,11 +19,67 @@ header {
       -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
       justify-content: space-between;
+      .left {
+         h3 {
+            font-family: "Data Control", sans-serif;
+         }
+         #logo::before {
+            content: "</>";
+         }
+      }
+      .right {
+         ul {
+            height: 100%;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            text-decoration: none;
+            list-style-type: none;
+            li {
+               padding: 0 5px;
+               display: -webkit-flex;
+               display: -ms-flexbox;
+               display: flex;
+               -webkit-align-items: center;
+               -ms-flex-align: center;
+               align-items: center;
+               a {
+                  text-decoration: none;
+               }
+            }
+         }
+      }
+   }
+}
+
+a {
+   color: $gray - #343434;
+}
+
+main {
+   background: $primary-background + #171717;
+   .breadcrumbs {
+      a {
+         text-decoration: none;
+      }
+      a:not(:first-child)::before {
+         content: " | ";
+      }
+      a:first-child {
+         content: " ";
+      }
    }
 }
 
 .shadow {
    box-shadow: 0 3px 10px #ccc;
+}
+
+.center {
+   text-align: center;
 }
 
 @media all and (min-width: $large-total-width) and (orientation: landscape) {

@@ -12,16 +12,22 @@
     <header>
         <div class="container">
 		    <div class="left">
-			    <img alt="Face">
-			    <h3>{% block blog_title %}{% endblock %}</h3>
+			    <h3><span id="logo"> </span>{% block blog_title %}{% endblock %}</h3>
 		    </div>
 		    <nav class="right">
-			    {% block nav %}{% endblock %}
+			    <ul>
+				    <li><a href="/blog/">Home</a></li>
+				    <li><a href="/blog/categories">Categories</a></li>
+				    <li><a href="/blog/tags">Tags</a></li>
+			    </ul>
 		    </nav>
         </div>
     </header>
     <main class="container shadow">
-	    <a href="/blog/">Home</a> {% block breadcrumbs %}{% endblock %}
+	    <div class="breadcrumbs">
+	        <a href="/blog/">Home</a>
+		    {% block breadcrumbs %}{% endblock %}
+	    </div>
 	    <h1>{% block title %}Welcome to my blog{% endblock %}</h1>
 	    {% block content %}
 	    {% endblock %}

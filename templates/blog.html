@@ -1,12 +1,6 @@
 {% extends 'blogbase.html' %}
-{% block title %}Welcome to my blog{% endblock %}
-{% block blog_title %}Title - font DataControl{% endblock %}
-
-{% block nav %}
-	<li><a href="/blog/">Home</a></li>
-	<li><a href="/blog/categories">Categories</a></li>
-	<li><a href="/blog/tags">Tags</a></li>
-{% endblock %}
+{% block title %}{{ welcome_message }}{% endblock %}
+{% block blog_title %}{{ blog_title }}{% endblock %}
 
 {% block content %}
 	{% comment %}<aside>
@@ -25,19 +19,37 @@
 	<main>
 		<h2>Posts</h2>
     {% if posts %}
-      <ul>
       {% for post in posts %}
         <article>
-	        <heading><h4>{{ post.title }}</h4></heading>
+	        <heading><h4>{{ post.title }}</h4>
+		        <div class="flex-inline">
+			        {% comment %}{% for %}
+				        <a href="{{ tag.get_absolute_url }}">tag.name</a>
+				    {% endfor %}{% endcomment %}
+		        </div>
+		    </heading>
 	        <p>{{ post.text|safe|truncatewords:"50"|linebreaks }}</p>
 	        <a href="{{ post.get_absolute_url }}">read more</a>
 	      </article>
       {% endfor %}
-      </ul>
+
+	  <div class="pagination center">
+	     <span class="step-links">
+	       {% if posts.has_previous %}
+	         <a href="?page={{ posts.previous_page_number }}">previous</a>
+	       {% endif %}
+           <span class="current">
+             Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+           </span>
+           {% if posts.has_next %}
+             <a href="?page={{  posts.next_page_number }}">next</a>
+           {% endif %}
+         </span>
+	   </div>
+
     {% else %}
       <p>There are no posts.</p>
     {% endif %}
-	</main>
 
 	<section>
 		<h2>Tags</h2>
@@ -51,5 +63,5 @@
 			<p>There are no tags.</p>
 		{% endif %}
 	</section>
-
+	</main>
 {% endblock %}

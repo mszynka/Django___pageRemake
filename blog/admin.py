@@ -1,5 +1,8 @@
 from django.contrib import admin
-from blog.models import Post, Category, Tag
+from blog.models import Post, Category, Tag, BlogSettings
+
+class BlogSettingsAdmin(admin.ModelAdmin):
+	list_display = ('attribute','value')
 
 class PostAdmin(admin.ModelAdmin):
 	exclude = ['date']
@@ -17,3 +20,4 @@ class TagAdmin(admin.ModelAdmin):
 admin.site.register(Post,PostAdmin)
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(Tag,TagAdmin)
+admin.site.register(BlogSettings,BlogSettingsAdmin)
