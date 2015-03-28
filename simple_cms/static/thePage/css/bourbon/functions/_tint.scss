@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/// @charset "UTF-8";
 
 /// Mixes a color with white.
 ///
@@ -20,5 +20,5 @@
 /// @return {Color}
 
 @function tint($color, $percent) {
-  @return mix(#fff, $color, $percent);
+   @return mix(#fff, $color, $percent);
 }

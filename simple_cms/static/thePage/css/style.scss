@@ -4,28 +4,27 @@
 @import "fonts";
 @import "scrollbar";
 @import "center";
-@import "aside";
-@import "loading-bar";
-@import "footer";
-@import "main";
 
-html {
-   height: 100%;
-}
-
-body {
-   height: 100%;
-   font: $font-size $font-stack;
-   background: $primary-backgroud;
-   overflow: hidden;
-   display: table;
-}
-
-.container {
-   display: table-row;
-}
-
-#{$a-open, $a-base} {
-   text-decoration: underline;
-   color: $primary-text-color;
+@media all and (min-height: 680px) and (min-width: 750px) and (orientation: landscape) {
+   @import "aside";
+   @import "loading-bar";
+   @import "footer";
+   @import "main";
+   html {
+      height: 100%;
+   }
+   body {
+      height: 100%;
+      font: $font-size $font-stack;
+      background: $primary-backgroud;
+      overflow: hidden;
+      display: table;
+   }
+   .container {
+      display: table-row;
+   }
+   #{$a-open, $a-base} {
+      text-decoration: underline;
+      color: $primary-text-color;
+   }
 }

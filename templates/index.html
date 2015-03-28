@@ -14,11 +14,13 @@
     <div class="container">
     <aside>
       <nav>
-        <img id="face" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face" onclick="window.location = ''">
+        <img style="visibility: hidden;" id="face" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face"
+             onclick="window.location =
+	      ''">
         <h1 class="center" onclick="window.location = ''">{{ name }}</h1>
         <ul ng-controller="nav">
           {% for item in menu %}
-              <li><a>{{ item.name }}</a></li>
+              <li><a alt="{{ item.description }}">{{ item.name }}</a></li>
           {% endfor %}
           <!--<li><a class="open">home</a></li>-->
         </ul>
