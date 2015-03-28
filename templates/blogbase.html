@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
-    </head>
-    <body>
-        <a href="/blog/">Home</a> {% block breadcrumbs %}{% endblock %}
-        <h1>{% block title %}Welcome to my blog{% endblock %}</h1>
-        {% block content %}
-
-        {% endblock %}
-    </body>
+  <head>
+    <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+	    <div class="left">
+		    <img alt="Face">
+		    <h3>{% block blog_title %}{% endblock %}</h3>
+	    </div>
+	    <nav class="right">
+		    {% block nav %}{% endblock %}
+	    </nav>
+    </header>
+    <main>
+	    <a href="/blog/">Home</a> {% block breadcrumbs %}{% endblock %}
+	    <h1>{% block title %}Welcome to my blog{% endblock %}</h1>
+	    {% block content %}
+	    {% endblock %}
+    </main>
+	</body>
 </html>

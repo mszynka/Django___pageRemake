@@ -1,8 +1,9 @@
 {% extends 'blogbase.html' %}
 {% block title %}Welcome to my blog{% endblock %}
+{% block blog_title %}Title - font DataControl{% endblock %}
 
 {% block content %}
-	<aside>
+	{% comment %}<aside>
 		<h2>Categories</h2>
     {% if categories %}
       <ul>
@@ -13,7 +14,7 @@
     {% else %}
       <p>There are no posts.</p>
     {% endif %}
-	</aside>
+	</aside>{% endcomment %}
 
 	<main>
 		<h2>Posts</h2>
@@ -31,5 +32,18 @@
       <p>There are no posts.</p>
     {% endif %}
 	</main>
+
+	<section>
+		<h2>Tags</h2>
+		{%  if tags %}
+			<ul>
+				{% for tag in tags %}
+					<li><a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a></li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>There are no tags.</p>
+		{% endif %}
+	</section>
 
 {% endblock %}
