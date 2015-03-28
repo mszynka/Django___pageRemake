@@ -1,0 +1,40 @@
+html,
+body,
+div,
+img,
+footer,
+header,
+nav,
+main,
+article {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: #EBF0FF; }
+
+header {
+  background: #5578FD; }
+  header .container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+
+.shadow {
+  box-shadow: 0 3px 10px #ccc; }
+
+@media all and (min-width: 1100px) and (orientation: landscape) {
+  .container {
+    width: 1100px;
+    margin: 0 auto; }
+
+  main {
+    padding: 10px 30px; } }
+
+/*# sourceMappingURL=style.css.map */

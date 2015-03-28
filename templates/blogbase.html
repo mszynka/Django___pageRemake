@@ -6,19 +6,21 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     {% load staticfiles %}
-    <link rel="stylesheet" media="all" href="{% static 'blog/thePage/css/style.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'blog/css/style.css' %}">
   </head>
   <body>
     <header>
-	    <div class="left">
-		    <img alt="Face">
-		    <h3>{% block blog_title %}{% endblock %}</h3>
-	    </div>
-	    <nav class="right">
-		    {% block nav %}{% endblock %}
-	    </nav>
+        <div class="container">
+		    <div class="left">
+			    <img alt="Face">
+			    <h3>{% block blog_title %}{% endblock %}</h3>
+		    </div>
+		    <nav class="right">
+			    {% block nav %}{% endblock %}
+		    </nav>
+        </div>
     </header>
-    <main>
+    <main class="container shadow">
 	    <a href="/blog/">Home</a> {% block breadcrumbs %}{% endblock %}
 	    <h1>{% block title %}Welcome to my blog{% endblock %}</h1>
 	    {% block content %}

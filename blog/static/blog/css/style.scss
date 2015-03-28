@@ -1,0 +1,35 @@
+@import "reset";
+@import "colors";
+@import "fonts";
+@import "sizes";
+
+body {
+   background: $primary-background;
+}
+
+header {
+   background: $secondary-background;
+   .container {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+   }
+}
+
+.shadow {
+   box-shadow: 0 3px 10px #ccc;
+}
+
+@media all and (min-width: $large-total-width) and (orientation: landscape) {
+   @import "large-landscape";
+}
+
+@media all and (max-width: $large-total-width - 1px) and (min-width: $medium-total-width) and (orientation: landscape) {
+   @import "medium-landscape";
+}
