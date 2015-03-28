@@ -46,7 +46,7 @@ class Tag(models.Model):
 	slug = models.SlugField(max_length=70, unique=True)
 
 	def __str__(self):
-		return '%s' % self.title
+		return '%s' % self.slug
 
 	class Meta:
 		verbose_name_plural = " > Tags"

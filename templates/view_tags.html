@@ -1,17 +1,19 @@
 {% extends 'blogbase.html' %}
 {% block blog_title %}{{ blog_title }}{% endblock %}
-{% block head_title %}Tags{% endblock %}
+{% block head_title %}{{ blog_title }} ::: Tags{% endblock %}
+{% block title %}Tags{% endblock %}
 
 {% block breadcrumbs %}<a href="">Tags</a>{% endblock %}
 
 {% block content %}
     {% if tags %}
-        <ul>
+	    <div class="center">
         {% for tag in tags %}
-            <li><a href="{{ tag.get_absolute_url }}">{{ tag.title }} ({{ tag.post_count }})</a></li>
+            <a class="tag" href="{{ tag.get_absolute_url }}">{{ tag.title }} ({{ tag.post_count }})</a>
         {% endfor %}
-        </ul>
+	    </div>
     {% else %}
         <p>There are no tags.</p>
     {% endif %}
+	<div class="bottom-spacer"></div>
 {% endblock %}

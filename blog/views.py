@@ -15,6 +15,11 @@ def index(request):
 	except EmptyPage:
 		posts_on_page = paginator.page(paginator.num_pages)
 
+	for post in posts_on_page:
+		post.tagsxy = list()
+		for tag in post.tags.all():
+			post.tagsxy.append(tag)
+
 	return render_to_response('blog.html', {
 		'nav_home': True,
 		'categories': Category.objects.all(),

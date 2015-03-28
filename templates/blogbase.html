@@ -23,14 +23,18 @@
 		    </nav>
         </div>
     </header>
-    <div class="breadcrumbs container shadow">
+    <div class="breadcrumbs container">
 	    <a href="/blog/">Home</a>
 	    {% block breadcrumbs %}{% endblock %}
 	</div>
-    <main class="container shadow">
+    <main class="container shadow bottom">
 	    <h1 class="center">{% block title %}Welcome to my blog{% endblock %}</h1>
 	    {% block content %}
 	    {% endblock %}
+   	<footer>
+		<hr/>
+		<a href="mszynka.pl">&copy Mateusz Szynka {% now "Y" %}</a>
+	</footer>
     </main>
     <div class="bottom-spacer"></div>
 	</body>

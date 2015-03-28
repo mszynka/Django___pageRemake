@@ -20,7 +20,6 @@ body {
   font-family: "Data Control";
   src: url("../fonts/data-latin.ttf"); }
 .tag {
-  float: left;
   margin: 0 0 7px 20px;
   position: relative;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -133,16 +132,29 @@ header {
           color: #111; }
 
 a {
-  color: #767676; }
+  color: #767676;
+  text-decoration: none; }
+
+.underline {
+  text-decoration: underline; }
+
+.black {
+  color: #111; }
 
 main {
   background: #f4f4f4;
   border-radius: 5px; }
+  main article:first-child hr {
+    display: none; }
+
+article heading {
+  text-align: center; }
+
+.bottom {
+  padding-bottom: 7px; }
 
 .breadcrumbs {
-  background: #C3C4D2;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
+  background: transparent; }
   .breadcrumbs a {
     text-decoration: none;
     color: #222222; }
@@ -168,7 +180,7 @@ main {
 hr {
   border: 0;
   height: 2px;
-  margin: 14px 0;
+  margin: 6px 0;
   position: relative;
   background: -moz-linear-gradient(left, transparent 0%, transparent 10%, rgba(0, 0, 0, 0.65) 50%, transparent 90%, transparent 100%);
   /* FF3.6+ */
@@ -203,6 +215,16 @@ footer {
 .center {
   text-align: center; }
 
+.flex-inline {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center; }
+
+.clear-list {
+  list-style: none;
+  padding-left: 5px; }
+
 @media all and (min-width: 1100px) and (orientation: landscape) {
   @font-face {
     font-family: "Data Control";
@@ -213,14 +235,18 @@ footer {
     margin: 0 auto; }
 
   main {
-    padding: 10px 20px; }
+    padding: 10px 20px 0; }
 
   .breadcrumbs {
     padding: 3px 20px;
     margin-bottom: 7px; }
 
   .bottom-spacer {
-    margin: 15px; } }
+    margin: 15px; }
+
+  footer {
+    margin: 0;
+    padding-bottom: 7px; } }
 @media all and (max-width: 1099px) and (min-width: 650px) and (orientation: landscape) {
   @font-face {
     font-family: "Data Control";
@@ -235,6 +261,13 @@ footer {
 
   .breadcrumbs {
     padding: 3px 17px;
-    margin-bottom: 5px; } }
+    margin-bottom: 5px; }
+
+  .bottom-spacer {
+    margin: 10px; }
+
+  footer {
+    margin: 0;
+    padding-bottom: 12px; } }
 
 /*# sourceMappingURL=style.css.map */
