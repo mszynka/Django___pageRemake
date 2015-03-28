@@ -11,16 +11,16 @@
     <link rel="stylesheet" media="all" href="{% static 'thePage/css/style.css' %}">
   </head>
   <body ng-app>
-    <div class="container">
     <aside>
       <nav>
-        <img style="visibility: hidden;" id="face" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face"
-             onclick="window.location =
-	      ''">
+        <img id="face" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face"
+             onclick="window.location =''">
         <h1 class="center" onclick="window.location = ''">{{ name }}</h1>
         <ul ng-controller="nav">
           {% for item in menu %}
-              <li><a alt="{{ item.description }}">{{ item.name }}</a></li>
+              <li><a class="{% if item.open %}open{% endif %}"
+                     href="{% if not item.open %}/{{ item.name }}/{% endif %}" alt="{{ item.description }}"
+		              >{{ item.name }}</a></li>
           {% endfor %}
           <!--<li><a class="open">home</a></li>-->
         </ul>
@@ -34,7 +34,6 @@
         </div>
     </aside>
     <main>
-      <div class="articles">
       {% if articles %}
         {% for article in articles %}
 			    <article class="center">
@@ -47,9 +46,7 @@
 	        <header><h2>No articles available for this view!</h2></header>
 	      </article>
       {% endif %}
-      </div>
     </main>
-    </div>
     <footer>&copy Mateusz Szynka 2015</footer>
   </body>
   <script type="text/javascript" src="{%  static 'thePage/js/angular.min.js' %}"></script>

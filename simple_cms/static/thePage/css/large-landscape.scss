@@ -3,33 +3,22 @@
 @import "colors";
 @import "center";
 
-$header-max-width: 220px;
-
 aside {
-   width: $header-max-width;
+   width: 12%;
+   min-width: 220px;
    height: 100%;
-   float: left;
-   background: $primary-backgroud;
-   display: table-cell;
-   overflow: hidden;
-   color: #fff;
    .services {
       position: absolute;
       bottom: 10px;
-      width: $header-max-width;
+      width: 12%;
+      min-width: 220px;
       $aside-services-padding: 10px;
       padding: $aside-services-padding 0 0 0;
       margin: 0 0 $aside-services-padding 0;
-      @include display(flex);
-      @include flex-direction(row);
-      @include flex-wrap(nowrap);
-      @include justify-content(center);
-      @include align-content(center);
       img {
          max-height: 35px;
          max-width: 35px;
          padding: 10px;
-         cursor: pointer;
       }
    }
    nav {
@@ -38,10 +27,10 @@ aside {
       left: 0;
       -webkit-transform: translate(0, -50%);
       transform: translate(0, -50%);
-      width: $header-max-width;
+      width: 12%;
+      min-width: 220px;
       height: 100%;
       padding: 0px 0px;
-      background: #343638;
       #face {
          max-height: 150px;
          max-width: 150px;
@@ -53,45 +42,45 @@ aside {
          margin-right: auto;
       }
       h1 {
-         font-family: "Tino Medium", sans-serif;
-         font-size: $font-size * 1.7;
-         line-height: 1.3em;
-         font-weight: 700;
-         text-transform: uppercase;
          margin-bottom: 11px;
          margin-left: 0;
          margin-right: 0;
          background-clip: text;
-         text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-         cursor: default;
       }
       ul {
-         list-style: none;
          padding: 0;
          li {
-            display: block;
             margin: 0 0 2px 0;
             padding: 0;
             font-size: 1.4em;
             font-weight: bold;
-            cursor: pointer;
-            @include user-select(none);
             a {
-               display: block;
                margin-left: 0;
                padding: 8px 0px 8px 0px;
                padding-left: 0;
                width: 100%;
-               color: $secondary-text-color;
-               text-decoration: none;
-               text-align: center;
-            }
-            #{$a-open} {
-               color: #fff;
-               background: $secondary-hover-color;
-               text-decoration: none;
             }
          }
+      }
+   }
+}
+
+main {
+   height: 100%;
+   width: 100%;
+   min-width: 530px;
+   ///min-width: 220px;
+   article {
+      padding: 15px;
+      header {
+         margin: 0;
+         padding: 0;
+         h2 {
+            padding: 0 0 10px 0;
+         }
+      }
+      p {
+         padding: 0 0 0 5px;
       }
    }
 }
