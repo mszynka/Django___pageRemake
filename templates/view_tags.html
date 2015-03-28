@@ -1,0 +1,16 @@
+{% extends 'blogbase.html' %}
+{% block head_title %}Tags{% endblock %}
+
+{% block breadcrumbs %}<a href="">Tags</a>{% endblock %}
+
+{% block content %}
+    {% if tags %}
+        <ul>
+        {% for tag in tags %}
+            <li><a href="{{ tag.get_absolute_url }}">{{ tag.title }} ({{ tag.post_count }})</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no tags.</p>
+    {% endif %}
+{% endblock %}

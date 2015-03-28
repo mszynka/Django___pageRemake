@@ -1,0 +1,11 @@
+@import "reset";
+@import "colors";
+@import "fonts";
+
+@media all and (min-width: 1100px) and (orientation: landscape) {
+   @import "large-landscape";
+}
+
+@media all and (max-width: 1099px) and (min-width: 600px) and (orientation: landscape) {
+   @import "medium-landscape";
+}

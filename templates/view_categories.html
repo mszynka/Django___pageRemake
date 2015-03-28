@@ -1,0 +1,16 @@
+{% extends 'blogbase.html' %}
+{% block head_title %}Categories{% endblock %}
+
+{% block breadcrumbs %}<a href="">Categories</a>{% endblock %}
+
+{% block content %}
+    {% if categories %}
+        <ul>
+        {% for category in categories %}
+            <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a> ({{ category.post_count }})</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no tags.</p>
+    {% endif %}
+{% endblock %}

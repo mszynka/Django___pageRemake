@@ -8,9 +8,11 @@ class PostAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('title',)}
+	list_display = ('title', 'slug')
 
 class TagAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('title',)}
+	list_display = ('title', 'slug')
 
 admin.site.register(Post,PostAdmin)
 admin.site.register(Category,CategoryAdmin)

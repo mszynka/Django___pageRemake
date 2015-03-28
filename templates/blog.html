@@ -2,6 +2,12 @@
 {% block title %}Welcome to my blog{% endblock %}
 {% block blog_title %}Title - font DataControl{% endblock %}
 
+{% block nav %}
+	<li><a href="/blog/">Home</a></li>
+	<li><a href="/blog/categories">Categories</a></li>
+	<li><a href="/blog/tags">Tags</a></li>
+{% endblock %}
+
 {% block content %}
 	{% comment %}<aside>
 		<h2>Categories</h2>
