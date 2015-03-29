@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/// @charset "UTF-8";
 
 /// Outputs the spec and prefixed versions of the `::selection` pseudo-element.
 ///
@@ -22,21 +22,20 @@
 ///   }
 
 @mixin selection($current-selector: false) {
-  @if $current-selector {
-    &::-moz-selection {
-      @content;
-    }
-
-    &::selection {
-      @content;
-    }
-  } @else {
-    ::-moz-selection {
-      @content;
-    }
-
-    ::selection {
-      @content;
-    }
-  }
+   @if $current-selector {
+      &::-moz-selection {
+         @content;
+      }
+      &::selection {
+         @content;
+      }
+   }
+   @else {
+      ::-moz-selection {
+         @content;
+      }
+      ::selection {
+         @content;
+      }
+   }
 }

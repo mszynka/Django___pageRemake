@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/// @charset "UTF-8";
 
 /// Checks if a list does not contains a value.
 ///
@@ -10,11 +10,10 @@
 /// @return {Bool}
 
 @function contains-falsy($list) {
-  @each $item in $list {
-    @if not $item {
-      @return true;
-    }
-  }
-
-  @return false;
+   @each $item in $list {
+      @if not $item {
+         @return true;
+      }
+   }
+   @return false;
 }

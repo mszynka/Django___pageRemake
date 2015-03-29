@@ -1,0 +1,86 @@
+@import "bourbon/bourbon";
+@import "fonts";
+@import "colors";
+@import "center";
+
+aside {
+   width: 12%;
+   min-width: 220px;
+   height: 100%;
+   .services {
+      position: absolute;
+      bottom: 10px;
+      width: 12%;
+      min-width: 220px;
+      $aside-services-padding: 10px;
+      padding: $aside-services-padding 0 0 0;
+      margin: 0 0 $aside-services-padding 0;
+      img {
+         max-height: 35px;
+         max-width: 35px;
+         padding: 10px;
+      }
+   }
+   nav {
+      position: relative;
+      top: 50%;
+      left: 0;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      width: 12%;
+      min-width: 220px;
+      height: 100%;
+      padding: 0px 0px;
+      #face {
+         max-height: 150px;
+         max-width: 150px;
+         min-height: 100px;
+         min-width: 100px;
+         @include display(block);
+         padding-top: 30px;
+         margin-left: auto;
+         margin-right: auto;
+      }
+      h1 {
+         margin-bottom: 11px;
+         margin-left: 0;
+         margin-right: 0;
+         background-clip: text;
+      }
+      ul {
+         padding: 0;
+         li {
+            margin: 0 0 2px 0;
+            padding: 0;
+            font-size: 1.4em;
+            font-weight: bold;
+            a {
+               margin-left: 0;
+               padding: 8px 0px 8px 0px;
+               padding-left: 0;
+               width: 100%;
+            }
+         }
+      }
+   }
+}
+
+main {
+   height: 100%;
+   width: 100%;
+   min-width: 530px;
+   ///min-width: 220px;
+   article {
+      padding: 15px;
+      header {
+         margin: 0;
+         padding: 0;
+         h2 {
+            padding: 0 0 10px 0;
+         }
+      }
+      p {
+         padding: 0 0 0 5px;
+      }
+   }
+}

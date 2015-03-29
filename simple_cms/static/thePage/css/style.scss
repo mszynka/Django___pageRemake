@@ -4,20 +4,133 @@
 @import "fonts";
 @import "scrollbar";
 @import "center";
-@import "aside";
-@import "navigation";
 @import "loading-bar";
-@import "footer";
-@import "loading-bar";
-@import "main";
 
-body {
-   font: $font-size $font-stack;
-   background: $primary-backgroud;
-   overflow: hidden;
+html {
+   height: 100%;
 }
 
-.container {
-   padding: 1%;
-   margin: 0 0 0 $header-max-width;
+body {
+   height: 100%;
+   font: $font-stack $font-size;
+   background: $primary-backgroud;
+   overflow: hidden;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-flex-direction: row;
+   -ms-flex-direction: row;
+   flex-direction: row;
+   -webkit-flex-wrap: nowrap;
+   -ms-flex-wrap: nowrap;
+   flex-wrap: nowrap;
+   -webkit-align-items: flex-start;
+   -ms-flex-align: start;
+   align-items: flex-start;
+   -webkit-align-content: stretch;
+   -ms-flex-line-pack: stretch;
+   align-content: stretch;
+}
+
+aside {
+   float: left;
+   background: $primary-backgroud;
+   -webkit-flex-grow: 1;
+   -ms-flex-positive: 1;
+   flex-grow: 1;
+   overflow: hidden;
+   color: #fff;
+   .services {
+      @include display(flex);
+      @include flex-direction(row);
+      @include flex-wrap(nowrap);
+      @include justify-content(center);
+      @include align-content(center);
+      img {
+         cursor: pointer;
+      }
+   }
+   nav {
+      background: #343638;
+      h1 {
+         font-family: "Sansation Bold", sans-serif;
+         font-size: $font-size * 1.7;
+         line-height: 1.3em;
+         font-weight: 700;
+         text-transform: uppercase;
+         text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+         cursor: default;
+      }
+      ul {
+         list-style: none;
+         li {
+            display: block;
+            cursor: pointer;
+            @include user-select(none);
+            a {
+               display: block;
+               color: $secondary-text-color;
+               text-decoration: none;
+               text-align: center;
+            }
+            #{$a-open} {
+               color: #fff;
+               background: $secondary-hover-color;
+               text-decoration: none;
+            }
+         }
+      }
+   }
+   a:open,
+   a:hover,
+   a:link,
+   a:visited,
+   a:active {
+      text-decoration: none;
+   }
+}
+
+main {
+   -webkit-flex-grow: 10;
+   -ms-flex-positive: 10;
+   flex-grow: 10;
+   background: url("../images/background1.png");
+   overflow: auto;
+   z-index: 5;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   align-items: center;
+   article {
+      font-style: $font-stack;
+      font-size: $font-size;
+      color: $primary-text-color;
+      z-index: 10;
+      header {
+         font-family: "Sansation Bold", sans-serif;
+         h2 {
+            margin: 0;
+         }
+      }
+      p {
+         text-indent: 0;
+         font-family: "Sansation", sans-serif;
+         line-height: 1.3;
+      }
+   }
+   #{$a-open, $a-base} {
+      text-decoration: underline;
+      color: $primary-text-color;
+   }
+}
+
+@media all and (min-height: 600px) and (min-width: 750px) and (orientation: landscape) {
+   @import "large-landscape";
+   footer {
+      display: none;
+   }
+}
+
+@media all and (orientation: portrait) {
+   ///@import "portrait";
 }
