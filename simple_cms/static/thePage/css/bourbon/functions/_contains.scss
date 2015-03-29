@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/// @charset "UTF-8";
 
 /// Checks if a list contains a value(s).
 ///
@@ -16,11 +16,10 @@
 /// @return {Bool}
 
 @function contains($list, $values...) {
-  @each $value in $values {
-    @if type-of(index($list, $value)) != "number" {
-      @return false;
-    }
-  }
-
-  @return true;
+   @each $value in $values {
+      @if type-of(index($list, $value)) != "number" {
+         @return false;
+      }
+   }
+   @return true;
 }

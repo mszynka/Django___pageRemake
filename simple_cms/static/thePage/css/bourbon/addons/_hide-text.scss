@@ -14,7 +14,7 @@
 ///     white-space: nowrap;
 ///   }
 ///
-/// @todo Remove height argument in v5.0.0
+/// @Remove height argument in v5.0.0
 
 @mixin hide-text($height: null) {
   overflow: hidden;

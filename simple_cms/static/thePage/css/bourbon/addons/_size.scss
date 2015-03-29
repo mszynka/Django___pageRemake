@@ -1,4 +1,4 @@
-@charset "UTF-8";
+///@charset "UTF-8";
 
 /// Sets the `width` and `height` of the element.
 ///
@@ -27,29 +27,24 @@
 ///     height: 10em;
 ///   }
 ///
-/// @todo Refactor in 5.0.0 to use a comma-separated argument
+/// @Refactor in 5.0.0 to use a comma-separated argument
 
 @mixin size($value) {
-  $width: nth($value, 1);
-  $height: $width;
-
-  @if length($value) > 1 {
-    $height: nth($value, 2);
-  }
-
-  @if is-size($height) {
-    height: $height;
-  }
-
-  @else {
-    @warn "`#{$height}` is not a valid length for the `$height` parameter in the `size` mixin.";
-  }
-
-  @if is-size($width) {
-    width: $width;
-  }
-
-  @else {
-    @warn "`#{$width}` is not a valid length for the `$width` parameter in the `size` mixin.";
-  }
+   $width: nth($value, 1);
+   $height: $width;
+   @if length($value) > 1 {
+      $height: nth($value, 2);
+   }
+   @if is-size($height) {
+      height: $height;
+   }
+   @else {
+      @warn "`#{$height}` is not a valid length for the `$height` parameter in the `size` mixin.";
+   }
+   @if is-size($width) {
+      width: $width;
+   }
+   @else {
+      @warn "`#{$width}` is not a valid length for the `$width` parameter in the `size` mixin.";
+   }
 }

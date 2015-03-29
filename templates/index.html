@@ -5,7 +5,7 @@
     <meta name="author" content="Mateusz Szynka">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <meta name="description" content="Programmer portfolio">
+    <meta name="description" content="Programmer portfolio">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load staticfiles %}
     <link rel="stylesheet" media="all" href="{% static 'thePage/css/style.css' %}">
@@ -13,48 +13,41 @@
   <body ng-app>
     <aside>
       <nav>
-        <img id="face" style="visibility: hidden;" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face" onclick="window.location = ''">
-        <h1 class="center" onclick="window.location = ''">{{ user }}</h1>
-        <ul id="navigation" ng-controller="nav">
+        <img id="face" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face"
+             onclick="window.location =''">
+        <h1 class="center" onclick="window.location = ''">{{ name }}</h1>
+        <ul ng-controller="nav">
           {% for item in menu %}
-              <li><a>{{ item.name }}</a></li>
+              <li><a class="{% if item.open %}open{% endif %}"
+                     href="{% if not item.open %}/{{ item.name }}/{% endif %}" alt="{{ item.description }}"
+		              >{{ item.name }}</a></li>
           {% endfor %}
-          <!--<li><a class="open">home</a></li>
-          <li><a>web</a></li>
-          <li><a>code</a></li>
-          <li><a>design</a></li>-->
+          <!--<li><a class="open">home</a></li>-->
         </ul>
-        <div class="services">
+      </nav>
+      <div class="services">
+          {% for service in services %}
+            <img class="service" src="{{ service.logo }}" onclick="{{ service.link }}" alt="{{ service.name }}">
+          {% endfor %}
           <img class="service" src="{%  static 'thePage/images/icon1.svg' %}" onclick="window.location='mailto:devmsw12@gmail.com'">
           <img class="service" src="{%  static 'thePage/images/icon2.svg' %}" onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
         </div>
-      </nav>
     </aside>
-    <div role="main" class="container" ng-controller="MainCtrl">
-      <article ng-repeat="article in articles">
-        <header><h2>{{ article.header }}</h2></header>
-        <p ng-repeat="paragraph in article.paragraphs">{{ paragraph }}</p>
-      </article>
-      <article class="center"> <!-- TODO main scroller -->
-        <header><h2>Article header</h2></header>
-        <p>{{ data }}</p>
-      </article>
-      <article class="center">
-        <header><h2>Article header</h2></header>
-        <p>{{ data }}</p>
-      </article>
-      <article class="center">
-        <header><h2>Article header</h2></header>
-        <p>{{ data }}</p>
-      </article>
-      <article class="center">
-        <header><h2>Article header</h2></header>
-        <p>{{ data }}</p>
-      </article>
-    </div>
-    <footer>
-      &copy Mateusz Szynka 2015
-    </footer>
+    <main>
+      {% if articles %}
+        {% for article in articles %}
+			    <article class="center">
+		        <header><h2 alt="Posted {{ article.date }}">{{ article.title }}</h2></header>
+		        {% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
+	        </article>
+	      {% endfor %}
+	      {% else %}
+	      <article class="center">
+	        <header><h2>No articles available for this view!</h2></header>
+	      </article>
+      {% endif %}
+    </main>
+    <footer>&copy Mateusz Szynka 2015</footer>
   </body>
   <script type="text/javascript" src="{%  static 'thePage/js/angular.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'thePage/js/jquery-1.10.2.min.js' %}"></script>
