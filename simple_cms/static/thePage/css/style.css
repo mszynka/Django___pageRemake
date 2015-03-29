@@ -422,6 +422,14 @@ main {
   -ms-flex-positive: 10;
   flex-grow: 10;
   background: url("../images/background1.png");
+<<<<<<< HEAD
+  height: 100%;
+  overflow: scroll;
+  padding: 30px 30px 0 30px;
+ }
+  div[role=main] article {
+    font-style: Aller sans-serif;
+=======
   overflow: auto;
   z-index: 5;
   display: flex;
@@ -430,6 +438,7 @@ main {
   align-items: center; }
   main article {
     font-style: Sansation, sans-serif;
+>>>>>>> merge
     font-size: 12pt;
     color: #C8CADE;
     z-index: 10; }

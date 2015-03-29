@@ -1,0 +1,11 @@
+{% extends 'blogbase.html' %}
+{% block blog_title %}{{ blog_title }}{% endblock %}
+{% block head_title %}{{ blog_title }} ::: {{ post.title }}{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block breadcrumbs %}<a href="../category/{{ post.category.slug }}">{{ post.category }}</a>{% endblock %}
+
+{% block content %}
+    {{ post.text }}
+	<div class="bottom-spacer"></div>
+{% endblock %}
