@@ -175,3 +175,4 @@ target/
 
 # Custom
 settings*
+db.sqlite*
