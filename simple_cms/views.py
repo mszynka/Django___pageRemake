@@ -18,7 +18,7 @@ def page(request, specific):
 		if item.name == specific:
 			item.open = True
 			found = True
-			articles = Article.objects.filter(view=item)
+			articles = Article.objects.filter(view=item,posted=True)
 
 	if not found:
 		raise Http404

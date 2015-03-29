@@ -16,7 +16,7 @@ class ImageAdmin(admin.ModelAdmin):
     list_display = ('name','caption','image')
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title','view','date')
+    list_display = ('title','view','date','posted')
 
 class ViewAdmin(admin.ModelAdmin):
     list_display = ('id','name','description','enabled')

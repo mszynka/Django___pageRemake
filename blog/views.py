@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
-	posts = Post.objects.all()
+	posts = Post.objects.filter(posted=True)
 	posts_per_page = BlogSettings.objects.filter(attribute='posts-per-page').get().value
 	paginator = Paginator(posts,posts_per_page)
 
@@ -37,7 +37,7 @@ def view_post(request, slug):
 
 def view_category(request, slug):
 	category = get_object_or_404(Category, slug=slug)
-	posts = Post.objects.filter(category=category)
+	posts = Post.objects.filter(category=category, posted=True)
 	posts_per_page = BlogSettings.objects.filter(attribute='posts-per-page').get().value
 	paginator = Paginator(posts,posts_per_page)
 
@@ -58,7 +58,7 @@ def view_category(request, slug):
 def view_categories(request):
 	categories = Category.objects.all()
 	for category in categories:
-		category.post_count = Post.objects.filter(category=category).count()
+		category.post_count = Post.objects.filter(category=category,posted=True).count()
 	return render_to_response('view_categories.html', {
 		'nav_cat': True,
 		'categories': categories,
@@ -67,7 +67,7 @@ def view_categories(request):
 
 def view_tag(request,slug):
 	tag = get_object_or_404(Tag, slug=slug)
-	posts = Post.objects.filter(tags=tag)
+	posts = Post.objects.filter(tags=tag, Posted=True)
 	posts_per_page = BlogSettings.objects.filter(attribute='posts-per-page').get().value
 	paginator = Paginator(posts,posts_per_page)
 
@@ -88,7 +88,7 @@ def view_tag(request,slug):
 def view_tags(request):
 	tags = Tag.objects.all()
 	for tag in tags:
-		tag.post_count = Post.objects.filter(tags=tag).count()
+		tag.post_count = Post.objects.filter(tags=tag,Posted=True).count()
 	return render_to_response('view_tags.html', {
 		'nav_tags': True,
 		'tags': tags,

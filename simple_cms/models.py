@@ -43,6 +43,7 @@ class Article(models.Model):
     paragraphs = RichTextField()
     view = models.ForeignKey(View, default=1)
     date = models.DateField(auto_now_add=True, blank=True)
+    posted = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title

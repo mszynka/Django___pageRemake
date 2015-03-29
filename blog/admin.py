@@ -7,7 +7,7 @@ class BlogSettingsAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
 	exclude = ['date']
 	prepopulated_fields = {'slug': ('title',)}
-	list_display = ('title','date','category')
+	list_display = ('title','date','category','posted')
 
 class CategoryAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('title',)}
