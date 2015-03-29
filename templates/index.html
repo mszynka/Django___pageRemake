@@ -10,25 +10,21 @@
     {% load staticfiles %}
     <link rel="stylesheet" media="all" href="{% static 'thePage/css/style.css' %}">
   </head>
-  <body ng-app>
+  <body>
     <aside>
       <nav>
         <img id="face" src="{%  static 'thePage/images/face.jpg' %}" alt="The Face"
              onclick="window.location =''">
         <h1 class="center" onclick="window.location = ''">{{ name }}</h1>
-        <ul ng-controller="nav">
+        <ul>
           {% for item in menu %}
               <li><a class="{% if item.open %}open{% endif %}"
                      href="{% if not item.open %}/{{ item.name }}/{% endif %}" alt="{{ item.description }}"
 		              >{{ item.name }}</a></li>
           {% endfor %}
-          <!--<li><a class="open">home</a></li>-->
         </ul>
       </nav>
       <div class="services">
-          {% for service in services %}
-            <img class="service" src="{{ service.logo }}" onclick="{{ service.link }}" alt="{{ service.name }}">
-          {% endfor %}
           <img class="service" src="{%  static 'thePage/images/icon1.svg' %}" onclick="window.location='mailto:devmsw12@gmail.com'">
           <img class="service" src="{%  static 'thePage/images/icon2.svg' %}" onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
         </div>
@@ -43,7 +39,7 @@
 	      {% endfor %}
 	      {% else %}
 	      <article class="center">
-	        <header><h2>No articles available for this view!</h2></header>
+	        <header><h2>No articles available for this page!</h2></header>
 	      </article>
       {% endif %}
     </main>
