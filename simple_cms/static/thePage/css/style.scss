@@ -70,6 +70,9 @@ aside {
       }
    }
    nav {
+      #face {
+         box-shadow: 0 0 300px rgba(0, 0, 0, 0.3);
+      }
       h1 {
          font-family: "Sansation Bold", sans-serif;
          font-size: $font-size * 1.7;
