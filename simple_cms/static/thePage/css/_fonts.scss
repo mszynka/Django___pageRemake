@@ -1,5 +1,3 @@
-@import "bourbon/bourbon";
-
 $font-stack: Sansation, sans-serif;
 $font-size: 12pt;
 
@@ -7,16 +5,43 @@ $a-base: "a, a:visited, a:link";
 $a-hovers: "a:hover, a:active";
 $a-open: "a.open, a:hover";
 
-@include font-face("Aller", "../fonts/AllerDisplay");
+@font-face {
+   font-family: "Aller";
+   src: url("../fonts/AllerDisplay.woff") format("woff"), url("../fonts/AllerDisplay.ttf") format("truetype");
+}
 
-@include font-face("Sansation", "../fonts/Sansation-Regular");
 
-@include font-face("Sansation Bold", "../fonts/Sansation-Bold");
+@font-face {
+   font-family: "Sansation";
+   src: url("../fonts/Sansation-Regular.ttf") format("truetype");
+}
 
-@include font-face("Sansation Italic", "../fonts/Sansation-Italic");
 
-@include font-face("Sansation Light", "../fonts/Sansation-Light");
+@font-face {
+   font-family: "Sansation Bold";
+   src: url("../fonts/Sansation-Bold.ttf") format("truetype");
+}
 
-@include font-face("Tino", "../fonts/Tino");
 
-@include font-face("Tino Medium", "../fonts/Tino Medium");
+@font-face {
+   font-family: "Sansation Italic";
+   src: url("../fonts/Sansation-Italic.ttf") format("truetype");
+}
+
+
+@font-face {
+   font-family: "Sansation Light";
+   src: url("../fonts/Sansation-Light.ttf") format("truetype");
+}
+
+
+@font-face {
+   font-family: "Tino";
+   src: url("../fonts/Tino.ttf") format("truetype");
+}
+
+
+@font-face {
+   font-family: "Tino Medium";
+   src: url("../fonts/Tino Medium.ttf") format("truetype");
+}
