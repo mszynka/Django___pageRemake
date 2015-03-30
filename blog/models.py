@@ -55,3 +55,20 @@ class Tag(models.Model):
 	@permalink
 	def get_absolute_url(self):
 		return ('view_blog_tag', None, {'slug': self.slug})
+
+class Comment:
+	date = models.DateTimeField(auto_now_add=True)
+	name = models.CharField(max__length=100,blank=False)
+	email = models.EmailField()
+	website = models.URLField()
+	text = models.TextField
+	replies = models.ManyToManyField(blog.Comment)
+	parent = models.ForeignKey(blog.Comment)
+	post = models.ForeignKey(blog.post)
+
+	def __str__(self):
+		return self.text[0:30] #returns first n characters
+
+	class Meta:
+		verbose_name = 'Comment'
+		verbose_name_plural = 'Comments'
