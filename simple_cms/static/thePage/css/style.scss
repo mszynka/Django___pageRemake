@@ -72,6 +72,9 @@ aside {
    nav {
       #face {
          box-shadow: 0 0 300px rgba(0, 0, 0, 0.3);
+         max-height: 150px;
+         max-width: 150px;
+         background: #fff;
       }
       h1 {
          font-family: "Sansation Bold", sans-serif;
@@ -84,6 +87,7 @@ aside {
       }
       ul {
          list-style: none;
+         overflow: auto;
          li {
             display: block;
             cursor: pointer;
@@ -121,7 +125,7 @@ main {
    -ms-flex-positive: 10;
    flex-grow: 10;
    background: url("../images/background1.png");
-   overflow: auto;
+   overflow: visible;
    z-index: 5;
    -webkit-flex-direction: column;
    -ms-flex-direction: column;
@@ -149,7 +153,7 @@ main {
       header {
          font-family: "Sansation Bold", sans-serif;
          h2 {
-            margin: 0;
+            margin: 15px 0 0 0;
          }
       }
       p {
@@ -168,10 +172,21 @@ footer {
    display: none;
 }
 
-@media all and (min-height: 600px) and (min-width: 750px) and (orientation: landscape) {
+$layout-large-min-height: 500px;
+$layout-medium-min-height: 340px;
+
+@media all and (min-height: $layout-large-min-height) and (orientation: landscape) and (min-width: $layout-large-min-height) {
    @import "large-landscape";
 }
 
+@media all and (min-height: $layout-medium-min-height) and (max-height: $layout-large-min-height - 1px) and (orientation: landscape) {
+   @import "medium-landscape";
+}
+
+@media all and (orientation: landscape) and (max-height: $layout-medium-min-height - 1px) {
+   @import "small-landscape";
+}
+
 @media all and (orientation: portrait) {
-   ///@import "portrait";
+   @import "portrait";
 }
