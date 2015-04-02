@@ -4,9 +4,7 @@
 @import "scrollbar"
 @import "center"
 
-///@import "loading-bar"
-
-html 
+html
    height: 100%
 
 body 
@@ -100,7 +98,6 @@ aside
                background: $secondary-hover-color
                text-decoration: none
                box-shadow: 0 0 4px rgba(0, 0, 0, 0.3)
-
    a.open,
    a:hover,
    a:link,
@@ -157,14 +154,11 @@ footer
 $layout-large-min-height: 500px
 $layout-medium-min-height: 340px
 
-@media all and (min-height: $layout-large-min-height) and (orientation: landscape) and (min-width: $layout-large-min-height) 
+@media (min-height: $layout-large-min-height) and (min-width: $layout-large-min-height)
    @import "large-landscape"
 
-@media all and (min-height: $layout-medium-min-height) and (max-height: $layout-large-min-height - 1px) and (orientation: landscape) 
+@media (min-height: $layout-medium-min-height) and (max-height: $layout-large-min-height - 1px)
    @import "medium-landscape"
 
-@media all and (orientation: landscape) and (max-height: $layout-medium-min-height - 1px) 
+@media (max-height: $layout-medium-min-height - 1px)
    @import "small-landscape"
-
-@media all and (orientation: portrait) 
-   @import "portrait"

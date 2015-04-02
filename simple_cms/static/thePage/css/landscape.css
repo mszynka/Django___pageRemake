@@ -204,7 +204,7 @@ main {
 footer {
   display: none; }
 
-@media all and (min-height: 500px) and (orientation: landscape) and (min-width: 500px) {
+@media (min-height: 500px) and (min-width: 500px) {
   @font-face {
     font-family: "Aller";
     src: url("../fonts/AllerDisplay.woff") format("woff"), url("../fonts/AllerDisplay.ttf") format("truetype"); }
@@ -290,7 +290,7 @@ footer {
           padding: 0 0 10px 0; }
       main article p {
         padding: 0 0 0 5px; } }
-@media all and (min-height: 340px) and (max-height: 499px) and (orientation: landscape) {
+@media (min-height: 340px) and (max-height: 499px) {
   @font-face {
     font-family: "Aller";
     src: url("../fonts/AllerDisplay.woff") format("woff"), url("../fonts/AllerDisplay.ttf") format("truetype"); }
@@ -363,7 +363,7 @@ footer {
         font-size: 95%; }
       main article p {
         font-size: 85%; } }
-@media all and (orientation: landscape) and (max-height: 339px) {
+@media (max-height: 339px) {
   @font-face {
     font-family: "Aller";
     src: url("../fonts/AllerDisplay.woff") format("woff"), url("../fonts/AllerDisplay.ttf") format("truetype"); }
@@ -436,107 +436,5 @@ footer {
         font-size: 95%; }
       main article p {
         font-size: 85%; } }
-@media all and (orientation: portrait) {
-  @font-face {
-    font-family: "Aller";
-    src: url("../fonts/AllerDisplay.woff") format("woff"), url("../fonts/AllerDisplay.ttf") format("truetype"); }
-  @font-face {
-    font-family: "Sansation";
-    src: url("../fonts/Sansation-Regular.ttf") format("truetype"); }
-  @font-face {
-    font-family: "Sansation Bold";
-    src: url("../fonts/Sansation-Bold.ttf") format("truetype"); }
-  @font-face {
-    font-family: "Sansation Italic";
-    src: url("../fonts/Sansation-Italic.ttf") format("truetype"); }
-  @font-face {
-    font-family: "Sansation Light";
-    src: url("../fonts/Sansation-Light.ttf") format("truetype"); }
-  @font-face {
-    font-family: "Tino";
-    src: url("../fonts/Tino.ttf") format("truetype"); }
-  @font-face {
-    font-family: "Tino Medium";
-    src: url("../fonts/Tino Medium.ttf") format("truetype"); }
-  .center {
-    text-align: center; }
 
-  .centerh {
-    display: block;
-    margin-left: auto;
-    margin-right: auto; }
-
-  .centerv {
-    display: table-cell;
-    vertical-align: middle; }
-
-  html {
-    overflow: visible;
-    overflow-y: scroll; }
-
-  body {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    overflow: visible;
-    overflow-y: scroll; }
-
-  aside {
-    width: 100%;
-    float: none;
-    flex-grow: 0;
-    justify-content: flex-start;
-    min-height: 320px;
-    max-height: 345px; }
-    aside nav #face {
-      display: block;
-      border-radius: 7px;
-      margin: 10px auto; }
-    aside nav h1 {
-      margin: 0 auto; }
-    aside nav ul {
-      padding: 0;
-      background: #484e57;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      justify-content: center; }
-      aside nav ul li {
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        height: 100%; }
-        aside nav ul li a {
-          text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-          font-size: 1em;
-          padding: 5px;
-          font-weight: 800; }
-        aside nav ul li a.open, aside nav ul li a:hover {
-          color: #484e57;
-          background: #fff;
-          text-decoration: none;
-          box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); }
-    aside .services {
-      padding: 5px;
-      -webkit-align-content: flex-start;
-      -ms-flex-line-pack: start;
-      align-content: flex-start;
-      max-height: 30px; }
-      aside .services img {
-        max-width: 10%;
-        min-width: 22px;
-        padding: 2%; }
-
-  main {
-    overflow-x: scroll;
-    width: 100%;
-    min-height: 70px; }
-    main article {
-      padding: 0.8%;
-      margin: 2% 0.8%; }
-      main article header h2 {
-        font-size: 100%; }
-      main article p {
-        font-size: 95%; } }
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=landscape.css.map */
