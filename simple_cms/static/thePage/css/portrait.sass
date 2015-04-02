@@ -1,0 +1,77 @@
+@import "fonts"
+@import "colors"
+@import "center"
+
+html 
+   overflow: visible
+   overflow-y: scroll
+
+body 
+   -webkit-flex-direction: column
+   -ms-flex-direction: column
+   flex-direction: column
+   overflow: visible
+   overflow-y: scroll
+
+aside 
+   width: 100%
+   float: none
+   flex-grow: 0
+   justify-content: flex-start
+   min-height: 320px
+   max-height: 345px
+   nav 
+      #face 
+         display: block
+         border-radius: 7px
+         margin: 10px auto
+      h1
+         margin: 0 auto
+      ul
+         padding: 0
+         background: $secondary-hover-color
+         display: -webkit-flex
+         display: -ms-flexbox
+         display: flex
+         justify-content: center
+         li 
+            -webkit-flex-direction: row
+            -ms-flex-direction: row
+            flex-direction: row
+            height: 100%
+            a 
+               ///color:
+               text-shadow: 0 0 6px rgba(0, 0, 0, 0.3)
+               font-size: 1em
+               padding: 5px
+               font-weight: 800
+            #{$a-open}
+               //color: #fff
+               color: $secondary-hover-color
+               background: #fff
+               text-decoration: none
+               box-shadow: 0 0 4px rgba(0, 0, 0, 0.3)
+   .services
+      padding: 5px
+      -webkit-align-content: flex-start
+      -ms-flex-line-pack: start
+      align-content: flex-start
+      img 
+         max-width: 10%
+         min-width: 22px
+         ///max-height: 10%
+         padding: 2%
+      max-height: 30px
+
+main 
+   overflow-x: scroll
+   width: 100%
+   min-height: 70px
+   article 
+      padding: 0.8%
+      margin: 2% 0.8%
+      header 
+         h2 
+            font-size: 100%
+      p 
+         font-size: 95%
