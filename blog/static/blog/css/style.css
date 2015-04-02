@@ -22,7 +22,7 @@ body {
 .tag {
   margin: 0 0 7px 20px;
   position: relative;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.75em;
   font-weight: bold;
   text-decoration: none;
@@ -47,8 +47,8 @@ body {
   z-index: 100; }
 
 .tag:before {
-  content: '';
-  width: 1.30em;
+  content: "";
+  width: 1.3em;
   height: 1.358em;
   background-image: -webkit-linear-gradient(left top, #feda71, #feba47);
   background-image: -moz-linear-gradient(left top, #feda71, #feba47);
@@ -58,7 +58,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#feda71', EndColorStr='#feba47');
   position: absolute;
   left: -0.69em;
-  top: .2em;
+  top: 0.2em;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
@@ -71,7 +71,7 @@ body {
   z-index: 1; }
 
 .tag:after {
-  content: '';
+  content: "";
   width: 0.5em;
   height: 0.5em;
   background: #fff;
@@ -144,10 +144,8 @@ a {
 main {
   background: #f4f4f4;
   border-radius: 5px; }
-  main article:first-child hr {
-    display: none; }
 
-article heading {
+article header {
   text-align: center; }
 
 .bottom {
@@ -183,19 +181,12 @@ hr {
   margin: 6px 0;
   position: relative;
   background: -moz-linear-gradient(left, transparent 0%, transparent 10%, rgba(0, 0, 0, 0.65) 50%, transparent 90%, transparent 100%);
-  /* FF3.6+ */
   background: -webkit-gradient(linear, left top, right top, color-stop(0%, transparent), color-stop(10%, transparent), color-stop(50%, rgba(0, 0, 0, 0.65)), color-stop(90%, transparent), color-stop(100%, transparent));
-  /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(left, transparent 0%, transparent 10%, rgba(0, 0, 0, 0.65) 50%, transparent 90%, transparent 100%);
-  /* Chrome10+,Safari5.1+ */
   background: -o-linear-gradient(left, transparent 0%, transparent 10%, rgba(0, 0, 0, 0.65) 50%, transparent 90%, transparent 100%);
-  /* Opera 11.10+ */
   background: -ms-linear-gradient(left, transparent 0%, transparent 10%, rgba(0, 0, 0, 0.65) 50%, transparent 90%, transparent 100%);
-  /* IE10+ */
   background: linear-gradient(left, transparent 0%, transparent 10%, rgba(0, 0, 0, 0.65) 50%, transparent 90%, transparent 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 );
-  /* IE6-9 */ }
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 ); }
 
 hr:before {
   content: "";
