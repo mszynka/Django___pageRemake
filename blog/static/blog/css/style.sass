@@ -1,151 +1,276 @@
-@import "reset"
 @import "colors"
-@import "fonts"
 @import "sizes"
-@import "tag"
+@import "fonts"
 
-body 
-   background: linear-gradient($primary-background, $dark-primary-background)
-   font-size: 10pt
+html
+  background: linear-gradient(to top, #f2f1ed, #f0efea)
 
-header  
-   background: linear-gradient($dark-secondary-background, $secondary-background) 
-   .container  
-      display: -webkit-flex 
-      display: -ms-flexbox 
-      display: flex 
-      -webkit-flex-direction: row 
-      -ms-flex-direction: row 
-      flex-direction: row 
-      -webkit-justify-content: space-between 
-      -ms-flex-pack: justify 
-      justify-content: space-between 
-      .left  
-         h3  
-            font-family: "Data Control", sans-serif 
-         #logo::before
-            content: "</>" 
-      .right
-         ul  
-            height: 100% 
-            display: -webkit-flex 
-            display: -ms-flexbox 
-            display: flex 
-            -webkit-flex-direction: row 
-            -ms-flex-direction: row 
-            flex-direction: row 
-            text-decoration: none 
-            list-style-type: none 
-            .active  
-               background: linear-gradient(transparent 20%, $yellow + $blue - #333) 
-            li
-               padding: 0 5px 
-               display: -webkit-flex 
-               display: -ms-flexbox 
-               display: flex 
-               -webkit-align-items: center 
-               -ms-flex-align: center 
-               align-items: center 
-               a  
-                  text-decoration: none 
-                  color: $black 
-                
-a
-   color: $gray - #343434 
-   text-decoration: none 
+body
+  font-family: "Tin Dog"
+  font-size: 12pt
+  margin: 0
+  padding: 0
 
-.underline  
-   text-decoration: underline 
+main
+  padding-bottom: 10px
+  article:first-of-type
+    hr
+      display: none
+  h2
+    margin: 0
+  h2.post-header
+    margin-top: 8px
+    margin-bottom: 4px
+  .info
+    margin-bottom: 8px
 
-.black  
-   color: $black 
+header
+  margin: 0
+  div
+    h1
+      padding: 0
+      margin: 10px 0 3px 0
+      a
+        text-decoration: none
 
-main  
-   background: $primary-background + #171717 
-   border-radius: 5px 
-
-article  
-   header
-      text-align: center 
-
-.bottom
-   padding-bottom: 7px 
+.nav
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+    text-align: center
+    li
+      display: inline-block
+      padding: 0 3px 3px 4px
+    li.active
+      border: 1px dashed #000
+      a
+        text-decoration: none
 
 .breadcrumbs
-   background: transparent 
-   a  
-      text-decoration: none 
-      color: $black + #111 
-    
-   a:not(:first-child)::before  
-      content: " | " 
-    
-   a:first-child  
-      content: " " 
+  display: none
 
-.pagination  
-   .current  
-      input  
-         min-width: 20px 
-         max-width: 50px 
-         text-align: center 
+.bold
+  font-weight: bold
 
-   .step-links
-      a  
-         text-decoration: none 
-         button  
-            color: #ccc 
-          
-         .enabled  
-            color: $black 
+.center
+  text-align: center
 
-.shadow  
-   box-shadow: 0 3px 10px #ccc 
+.underline
+  text-decoration: underline
 
 hr
-   border: 0 
-   height: 2px 
-   margin: 6px 0 
-   position: relative 
-   background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.65) 50%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)  /* FF3.6+ */
-   background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(10%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(0, 0, 0, 0.65)), color-stop(90%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)))  /* Chrome,Safari4+ */
-   background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.65) 50%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)  /* Chrome10+,Safari5.1+ */
-   background: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.65) 50%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)  /* Opera 11.10+ */
-   background: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.65) 50%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)  /* IE10+ */
-   background: linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.65) 50%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)  /* W3C */
-   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 )  /* IE6-9 */
+  height: 1px
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(rgba(0, 0, 0, 0)), color-stop(0.5, #333333), to(rgba(0, 0, 0, 0)))
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), #333333, rgba(0, 0, 0, 0))
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0), #333333, rgba(0, 0, 0, 0))
+  background: -o-linear-gradient(left, rgba(0, 0, 0, 0), #333333, rgba(0, 0, 0, 0))
+  background: linear-gradient(left, rgba(0, 0, 0, 0), #333333, rgba(0, 0, 0, 0))
+  border: 0
 
-hr:before  
-   content: "" 
-   display: block 
-   border-top: solid 1px #f9f9f9 
-   width: 100% 
-   height: 1px 
-   position: absolute 
-   top: 50% 
-   z-index: 1 
- 
+a,
+.black
+  color: #333333
+  text-shadow: 0 0 20px rgba(0, 0, 0, .2)
+
+.flex-inline
+  display: flex
+  flex-direction: row
+
+.no-decoration
+  text-decoration: none
+
+.medium-light
+  font-weight: bold
+
+.light
+  font-weight: lighter
+
+.small
+  font-size: 12pt
+
+.no-border
+  border: 0
+
+article
+  margin: 10px 2%
+  padding: 5px 5%
+  border: 1px solid #ccc
+  border-radius: 20px
+  header
+    padding-bottom: 2px
+    margin-bottom: 2px
+    border-bottom: 1px solid #ccc
+    h3
+      margin: 0
+      padding: 0
+      a
+        text-decoration: none
+    div
+      padding: 0 0 3px 0
+      font-size: 70%
+      color: #777
+      a
+        color: #777
+  p
+    margin: 0
+    padding: 0
+    font-weight: lighter
+    font-size: 10pt
+  hr
+    display: none
+
+.info
+  padding: 0 0 3px 15px
+  font-size: 70%
+
+.small
+  font-size: 70%
+
+.clear
+  clear: both
+
+.comments-container
+  padding: 0 10px
+  display: flex
+  flex-flow: row-reverse wrap
+  justify-content: center
+  align-items: flex-start
+  align-content: stretch
+  h4
+    padding: 0 0 10px 0
+    margin: 0
+    font-weight: lighter
+  .comments
+    flex-grow: 1
+    min-width: 50%
+    margin: 5px
+    .comment:first-of-type
+      margin-top: 0
+    .comment
+      border: 1px solid #ccc
+      padding: 6px
+      margin-top: 10px
+      .comment-text
+        padding: 5px 5px 5px 20px
+        margin: 0
+        font-weight: lighter
+        font-size: 90%
+    .replies-group
+      .reply:last-of-type
+        border-bottom-left-radius: 15px
+        border-bottom-right-radius: 15px
+        margin-bottom: 10px
+    .reply
+      border: 1px solid #ccc
+      border-top: 0
+      padding: 6px
+      margin: 0 0 0 30px
+      .reply-text
+        padding: 5px 5px 5px 20px
+        margin: 0
+        font-weight: lighter
+        font-size: 90%
+    .no-reply
+      border-radius: 15px
+    .replies
+      border-top-left-radius: 15px
+      border-top-right-radius: 15px
+      border-bottom-left-radius: 15px
+  .posts
+    flex-grow: 1
+    min-width: 30%
+    //margin: 10px 2%
+    margin: 10px
+    padding: 5px 10px
+    border: 1px solid #ccc
+    border-radius: 15px
+    box-shadow: 0 0 10px #ccc
+
+
+//.tag TODO
+
+.container
+  border-width: 1px
+  border-style: solid
+  border-image: linear-gradient(to bottom, #ccc, rgba(0, 0, 0, .2)) 1 100%
+  display: block
+  margin: 0 auto
+  box-shadow: 0 0 20px #ccc
+  background: #f6f6f6
+  margin-bottom: 5px
+
 footer
-   text-align: center 
-   a  
-      text-decoration: none
- 
-.center
-   text-align: center 
+  text-align: center
+  padding-bottom: 5px
+  font-size: 70%
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  margin: 0 auto 5px auto
+  .spacer
+    display: none
 
-.flex-inline  
-   display: flex 
-   flex-direction: row 
-   align-content: center 
-   justify-content: center 
- 
-.clear-list
-   list-style: none 
-   padding-left: 5px 
+@media all and (min-width: $large-total-width)
+  .container
+    width: $large-container-width
+    padding: 0 20px
 
-@media all and (min-width: $large-total-width) and (orientation: landscape)  
-   @import "large-landscape" 
 
-@media all and (max-width: $large-total-width - 1px) and (min-width: $medium-total-width) and (orientation: landscape)  
-   @import "medium-landscape" 
- 
+  footer
+    width: $large-container-width
+
+  .comments-container
+    .comments
+      max-width: 65%
+    .posts
+      max-width: 35%
+
+@media all and (min-width: $medium-total-width) and (max-width: $large-total-width - 1px)
+  .container
+    width: $medium-container-width
+    padding: 0 15px
+
+
+  footer
+    width: $medium-container-width
+
+  .comments-container
+    flex-flow: row wrap
+    .comments
+      max-width: 55%
+    .posts
+      max-width: 45%
+
+@media all and (min-width: $small-total-width) and (max-width: $medium-total-width - 1px)
+  .container
+    minwidth: 99%
+    padding: 0 4px
+
+
+  footer
+    padding: 0 7px
+
+  .comments-container
+    .comments
+      width: 100%
+
+    .posts
+      width: 100%
+
+@media all and (max-width: $small-total-width - 1px)
+  .container
+    width: 100%
+    margin: 0 1px
+
+  footer
+    width: 99%
+    .spacer
+      display: block
+      border: 1px solid #ccc
+      margin: 0 5px
+  .comments-container
+    .comments
+      width: 100%
+    .posts
+      width: 100%

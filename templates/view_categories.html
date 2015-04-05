@@ -1,17 +1,17 @@
 {% extends 'blogbase.html' %}
 {% block blog_title %}{{ blog_title }}{% endblock %}
-{% block head_title %}{{ blog_title }} ::: Categories{% endblock %}
-{% block title %}Categories{% endblock %}
+{% block head_title %}{{ blog_title }} - Categories{% endblock %}
+{% block title %}<h2 class="center black">Categories</h2>{% endblock %}
 
 {% block breadcrumbs %}<a href="">Categories</a>{% endblock %}
 
 {% block content %}
     {% if categories %}
-        <ul class="clear-list center">
+        <div class="center">
         {% for category in categories %}
-            <li><a href="{{ category.get_absolute_url }}">{{ category.title }} ({{ category.post_count }})</a></li>
+            <a class="category no-decoration" href="{{ category.get_absolute_url }}">{{ category.title }} ({{ category.post_count }})</a>
         {% endfor %}
-        </ul>
+        </div>
     {% else %}
         <p>There are no categories.</p>
     {% endif %}

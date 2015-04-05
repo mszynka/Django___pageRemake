@@ -1,7 +1,7 @@
 {% extends 'blogbase.html' %}
 {% block blog_title %}{{ blog_title }}{% endblock %}
-{% block title %}Category: {{ category.title }}{% endblock %}
-{% block head_title %}{{ blog_title }} ::: Category: {{ category.title }}{% endblock %}
+{% block title %}<h2 class="center black">{{ category.title }}</h2>{% endblock %}
+{% block head_title %}{{ blog_title }} - {{ category.title }}{% endblock %}
 
 {% block breadcrumbs %}<a href="{{ category.slug }}">{{ category.title }}</a>{% endblock %}
 
@@ -9,15 +9,22 @@
     {% if posts %}
       {% for post in posts %}
         <article>
-        <hr/>
-	        <heading><h2><a class="black" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-		        <div class="flex-inline">
-			        {% for tag in post.tags.all %}
-				        <a class="tag" href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
-				    {% endfor %}
-		        </div>
-		    </heading>
-	        <p class="center">{{ post.text|safe|truncatewords:"50" }}
+	        <header><h3><a class="black" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+				<div class="flex-inline">
+					<span class="medium-light">Posted:</span>
+					&nbsp;<span class="light">{{ post.date|date:"d M Y" }}</span>&nbsp;
+					<span class="medium-light">in</span>&nbsp;
+					<a class="underline light" href="{{ post.category.get_absolute_url }}">{{ post.category }}</a>
+					{% if post.tags.all %}
+					&nbsp; | &nbsp;
+					<span class="medium-light">Tags: </span>&nbsp;
+					{% for tag in post.tags.all %}
+					<a class="tag underline{{ tag.color }}" href="{{ tag.get_absolute_url }}"> {{ tag.title }}</a>
+					{% endfor %}
+					{% endif %}
+				</div>
+		    </header>
+	        <p>{{ post.text|safe|truncatewords:"50" }}
 		        {% ifnotequal post.text|truncatewords_html:50|length post.text|truncatewords_html:51|length %}
 		            <a class="underline" href="{{ post.get_absolute_url }}"> read more</a>
 	            {% endifnotequal %}

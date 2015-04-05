@@ -15,7 +15,8 @@ class Post(models.Model):
     text = models.TextField()
     date = models.DateField(db_index=True, auto_now_add=True)
     category = models.ForeignKey('blog.Category')
-    tags = models.ManyToManyField('blog.Tag')
+    tags = models.ManyToManyField('blog.Tag',blank=True)
+    author_icon = models.ImageField(blank=True)
     posted = models.BooleanField(default=True)
 
     def __str__(self):
@@ -43,8 +44,21 @@ class Category(models.Model):
 	    verbose_name_plural = " > Categories"
 
 class Tag(models.Model):
+	TAG_COLORS = (
+		('red','red'),
+		('aqua','aqua'),
+		('blue','blue'),
+		('purple','purple'),
+		('lime','lime'),
+		('green','green'),
+		('yellow','yellow'),
+		('orange','orange'),
+		('gray','gray'),
+	)
+
 	title = models.CharField(max_length=70, unique=True)
 	slug = models.SlugField(max_length=70, unique=True)
+	color = models.CharField(max_length=10, choices=TAG_COLORS, default='gray')
 
 	def __str__(self):
 		return '%s' % self.slug
@@ -56,19 +70,24 @@ class Tag(models.Model):
 	def get_absolute_url(self):
 		return ('view_blog_tag', None, {'slug': self.slug})
 
-class Comment:
+class Comment(models.Model):
 	date = models.DateTimeField(auto_now_add=True)
-	name = models.CharField(max__length=100,blank=False)
-	email = models.EmailField()
-	website = models.URLField()
-	text = models.TextField
-	replies = models.ManyToManyField(blog.Comment)
-	parent = models.ForeignKey(blog.Comment)
-	post = models.ForeignKey(blog.post)
+	name = models.CharField(max_length=100,blank=False)
+	email = models.EmailField(blank=False)
+	website = models.URLField(blank=True)
+	text = models.TextField(blank=False)
+	post = models.ForeignKey('blog.Post',blank=True)
 
 	def __str__(self):
-		return self.text[0:30] #returns first n characters
+		return '%s' % self.text[0:200] #returns first n characters
 
-	class Meta:
-		verbose_name = 'Comment'
-		verbose_name_plural = 'Comments'
+class Reply(models.Model):
+	date = models.DateTimeField(auto_now_add=True)
+	name = models.CharField(max_length=100,blank=False)
+	email = models.EmailField(blank=False)
+	website = models.URLField(blank=True)
+	text = models.TextField(blank=False)
+	parent = models.ForeignKey('blog.Comment',blank=True)
+
+	def __str__(self):
+		return '%s' % self.text[0:200] #returns first n characters

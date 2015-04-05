@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
     <meta name="author" content="Mateusz Szynka">
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load staticfiles %}
     <link rel="shortcut icon" type="image/png" href="{% static 'blog/favicon.ico' %}"/>
-	<link rel="stylesheet" media="all" href="{% static 'blog/css/style.css' %}">
-  </head>
-  <body>
+    <link rel="stylesheet" media="all" href="{% static 'blog/css/style.css' %}">
+</head>
+<body>
+<div class="container">
     <header>
-        <div class="container">
-		    <div class="left">
-			    <h3><!--<span id="logo"> </span>-->{% block blog_title %}{% endblock %}</h3>
-		    </div>
-		    <nav class="right">
-			    <ul>
-				    <li class="{% if nav_home %}active{% endif %}"><a href="/blog/">Home</a></li>
-				    <li class="{% if nav_cat %}active{% endif %}"><a href="/blog/categories">Categories</a></li>
-				    <li class="{% if nav_tags %}active{% endif %}"><a href="/blog/tags">Tags</a></li>
-			    </ul>
-		    </nav>
+        <div class="center">
+            <h1><a class="black" href="/blog/">{% block blog_title %}{% endblock %}</a></h1>
         </div>
+        <nav class="nav">
+            <ul>
+                <li class="{% if nav_home %}active{% endif %}"><a href="/blog/">Home</a></li>
+                <li class="{% if nav_cat %}active{% endif %}"><a href="/blog/categories">Categories</a></li>
+                <li class="{% if nav_tags %}active{% endif %}"><a href="/blog/tags">Tags</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="breadcrumbs container">
-	    <a href="/blog/">Home</a>
-	    {% block breadcrumbs %}{% endblock %}
-	</div>
-    <main class="container shadow bottom">
-	    <h1 class="center">{% block title %}Welcome to my blog{% endblock %}</h1>
-	    {% block content %}
-	    {% endblock %}
-   	<footer>
-		<hr/>
-		<a href="mszynka.pl">&copy Mateusz Szynka {% now "Y" %}</a>
-	</footer>
+    <div class="breadcrumbs">
+        <a href="/blog/">Home</a>
+        {% block breadcrumbs %}{% endblock %}
+    </div>
+    <main class="shadow">
+        <hr/>
+        {% block title %}Welcome to my blog{% endblock %}
+        <hr/>
+        {% block content %}
+        {% endblock %}
+
     </main>
-    <div class="bottom-spacer"></div>
-	</body>
+</div>
+<footer>
+    <div>
+        <a class="no-decoration" href="http://mszynka.pl">&copy Mateusz Szynka {% now "Y" %}</a>
+    </div>
+    <div class="spacer"></div>
+    <div>Powered by <a href="https://www.djangoproject.com/">Django</a>
+        &
+        <a href="https://angularjs.org/">AngularJS</a>
+    </div>
+</footer>
+</body>
 </html>

@@ -1,7 +1,7 @@
 {% extends 'blogbase.html' %}
 {% block blog_title %}{{ blog_title }}{% endblock %}
-{% block head_title %}{{ blog_title }} ::: Tags{% endblock %}
-{% block title %}Tags{% endblock %}
+{% block head_title %}{{ blog_title }} - Tags{% endblock %}
+{% block title %}<h2 class="center black">Tags</h2>{% endblock %}
 
 {% block breadcrumbs %}<a href="">Tags</a>{% endblock %}
 
@@ -9,7 +9,7 @@
     {% if tags %}
 	    <div class="center">
         {% for tag in tags %}
-            <a class="tag" href="{{ tag.get_absolute_url }}">{{ tag.title }} ({{ tag.post_count }})</a>
+            <a class="tag {{ tag.color }}" href="{{ tag.get_absolute_url }}">{{ tag.title }} ({{ tag.post_count }})</a>
         {% endfor %}
 	    </div>
     {% else %}

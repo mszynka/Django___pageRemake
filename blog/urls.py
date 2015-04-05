@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from blog.models import Post, Category
+from blog.models import Post, Category, Tag, Comment
 
 urlpatterns = patterns(
 	'',
