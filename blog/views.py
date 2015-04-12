@@ -113,3 +113,6 @@ def view_tags(request):
 		'tags': tags,
 	    'blog_title': BlogSettings.objects.filter(attribute='blog-title').get().value
 	})
+
+def new_comment(request, name, email, website, text, post):
+	pass

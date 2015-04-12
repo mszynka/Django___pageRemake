@@ -169,22 +169,25 @@ article {
       margin-top: 0; }
     .comments-container .comments .comment {
       border: 1px solid #ccc;
-      padding: 6px;
-      margin-top: 10px; }
+      padding: 8px;
+      margin-top: 10px;
+      box-shadow: 0 0 10px #ccc;
+      background: linear-gradient(white, #eee); }
       .comments-container .comments .comment .comment-text {
         padding: 5px 5px 5px 20px;
         margin: 0;
         font-weight: lighter;
         font-size: 90%; }
     .comments-container .comments .replies-group .reply:last-of-type {
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
       margin-bottom: 10px; }
     .comments-container .comments .reply {
       border: 1px solid #ccc;
       border-top: 0;
-      padding: 6px;
-      margin: 0 0 0 30px; }
+      padding: 8px;
+      margin: 0 0 0 30px;
+      box-shadow: 0 0 1px #ccc; }
       .comments-container .comments .reply .reply-text {
         padding: 5px 5px 5px 20px;
         margin: 0;
@@ -193,9 +196,9 @@ article {
     .comments-container .comments .no-reply {
       border-radius: 15px; }
     .comments-container .comments .replies {
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      border-bottom-left-radius: 15px; }
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px; }
   .comments-container .posts {
     flex-grow: 1;
     min-width: 30%;
@@ -235,9 +238,11 @@ footer {
     width: 1000px; }
 
   .comments-container .comments {
-    max-width: 65%; }
+    max-width: 65%;
+    order: 2; }
   .comments-container .posts {
-    max-width: 35%; } }
+    max-width: 35%;
+    order: 1; } }
 @media all and (min-width: 750px) and (max-width: 1099px) {
   .container {
     width: 700px;
@@ -249,9 +254,9 @@ footer {
   .comments-container {
     flex-flow: row wrap; }
     .comments-container .comments {
-      max-width: 55%; }
+      max-width: 65%; }
     .comments-container .posts {
-      max-width: 45%; } }
+      max-width: 30%; } }
 @media all and (min-width: 400px) and (max-width: 749px) {
   .container {
     minwidth: 99%;

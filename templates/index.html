@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Mateusz Szynka</title>
-    <meta name="author" content="Mateusz Szynka">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="Programmer portfolio">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load staticfiles %}
+<head>
+	<title>Mateusz Szynka</title>
+	<meta name="author" content="Mateusz Szynka">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Programmer portfolio">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% load staticfiles %}
 	<link rel="shortcut icon" type="image/png" href="{% static 'thePage/favicon.ico' %}"/>
-    <link rel="stylesheet" media="all" href="{% static 'thePage/css/style.css' %}">
-  </head>
-  <body>
-    <aside>
-      <nav>
-        <img id="face" src="{%  static 'thePage/images/face.svg' %}" alt="The Face"
-             onclick="window.location =''">
-        <h1 class="center" onclick="window.location = ''">{{ name }}</h1>
-        <ul>
-          {% for item in menu %}
-              <li><a class="{% if item.open %}open{% endif %}"
-                     href="{% if not item.open %}/{{ item.name }}/{% endif %}" alt="{{ item.description }}"
-		              >{{ item.name }}</a></li>
-          {% endfor %}
-        </ul>
-      </nav>
-      <div class="services">
-          <img class="service" src="{%  static 'thePage/images/icon1.svg' %}" onclick="window.location='mailto:devmsw12@gmail.com'">
-          <img class="service" src="{%  static 'thePage/images/icon2.svg' %}" onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
-        </div>
-    </aside>
-    <main>
-      {% if articles %}
-        {% for article in articles %}
-			    <article class="center">
-		        <header><h2 alt="Posted {{ article.date }}">{{ article.title }}</h2></header>
-		        {% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
-	        </article>
-	      {% endfor %}
-	      {% else %}
-	      <article class="center">
-	        <header><h2>No articles available for this page!</h2></header>
-	      </article>
-      {% endif %}
-    </main>
-    <footer>&copy Mateusz Szynka 2015</footer>
-  </body>
-  <script type="text/javascript" src="{%  static 'thePage/js/angular.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'thePage/js/jquery-1.10.2.min.js' %}"></script>
-  <!--<script type="text/javascript" src="{%  static 'thePage/js/jquery-ui.min.js' %}"></script>-->
-  <script type="text/javascript" src="{%  static 'thePage/js/scripts.js' %}"></script>
+	<link rel="stylesheet" media="all" href="{% static 'thePage/css/style.css' %}">
+</head>
+<body>
+<aside>
+	<nav>
+		<img id="face" src="{% static 'thePage/images/face.svg' %}" alt="The Face"
+		     onclick="window.location =''">
+
+		<h1 class="center" onclick="window.location = ''">{{ name }}</h1>
+		<ul>
+			{% for item in menu %}
+				<li><a class="{% if item.open %}open{% endif %}"
+				       href="{% if not item.open %}/{{ item.name }}/{% endif %}" alt="{{ item.description }}"
+						>{{ item.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</nav>
+	<div class="services">
+		<img class="service" src="{% static 'thePage/images/icon1.svg' %}"
+		     onclick="window.location='mailto:devmsw12@gmail.com'">
+		<img class="service" src="{% static 'thePage/images/icon2.svg' %}"
+		     onclick="var win=window.open('http://github.com/mszynka', '_blank'); win.focus();">
+	</div>
+</aside>
+<main>
+	{% if articles %}
+		{% for article in articles %}
+			<article class="center">
+				<header><h2 alt="Posted {{ article.date }}">{{ article.title }}</h2></header>
+				{% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
+			</article>
+		{% endfor %}
+	{% else %}
+		<article class="center">
+			<header><h2>No articles available for this page!</h2></header>
+		</article>
+	{% endif %}
+</main>
+<footer>&copy Mateusz Szynka 2015</footer>
+</body>
+<script type="text/javascript" src="{% static 'thePage/js/angular.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'thePage/js/jquery-1.10.2.min.js' %}"></script>
+<!--<script type="text/javascript" src="{%  static 'thePage/js/jquery-ui.min.js' %}"></script>-->
+<script type="text/javascript" src="{% static 'thePage/js/scripts.js' %}"></script>
 </html>

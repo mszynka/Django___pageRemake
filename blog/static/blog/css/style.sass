@@ -149,8 +149,10 @@ article
       margin-top: 0
     .comment
       border: 1px solid #ccc
-      padding: 6px
+      padding: 8px
       margin-top: 10px
+      box-shadow: 0 0 10px #ccc
+      background: linear-gradient($primary-background+#333, #eee)
       .comment-text
         padding: 5px 5px 5px 20px
         margin: 0
@@ -158,14 +160,15 @@ article
         font-size: 90%
     .replies-group
       .reply:last-of-type
-        border-bottom-left-radius: 15px
-        border-bottom-right-radius: 15px
+        border-bottom-left-radius: 10px
+        border-bottom-right-radius: 10px
         margin-bottom: 10px
     .reply
       border: 1px solid #ccc
       border-top: 0
-      padding: 6px
+      padding: 8px
       margin: 0 0 0 30px
+      box-shadow: 0 0 1px #ccc
       .reply-text
         padding: 5px 5px 5px 20px
         margin: 0
@@ -174,9 +177,9 @@ article
     .no-reply
       border-radius: 15px
     .replies
-      border-top-left-radius: 15px
-      border-top-right-radius: 15px
-      border-bottom-left-radius: 15px
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
+      border-bottom-left-radius: 10px
   .posts
     flex-grow: 1
     min-width: 30%
@@ -223,8 +226,10 @@ footer
   .comments-container
     .comments
       max-width: 65%
+      order: 2
     .posts
       max-width: 35%
+      order: 1
 
 @media all and (min-width: $medium-total-width) and (max-width: $large-total-width - 1px)
   .container
@@ -238,9 +243,9 @@ footer
   .comments-container
     flex-flow: row wrap
     .comments
-      max-width: 55%
+      max-width: 65%
     .posts
-      max-width: 45%
+      max-width: 30%
 
 @media all and (min-width: $small-total-width) and (max-width: $medium-total-width - 1px)
   .container

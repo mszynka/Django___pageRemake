@@ -6,50 +6,52 @@
 {% block breadcrumbs %}<a href="{{ category.slug }}">{{ category.title }}</a>{% endblock %}
 
 {% block content %}
-    {% if posts %}
-      {% for post in posts %}
-        <article>
-	        <header><h3><a class="black" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-				<div class="flex-inline">
-					<span class="medium-light">Posted:</span>
-					&nbsp;<span class="light">{{ post.date|date:"d M Y" }}</span>&nbsp;
-					<span class="medium-light">in</span>&nbsp;
-					<a class="underline light" href="{{ post.category.get_absolute_url }}">{{ post.category }}</a>
-					{% if post.tags.all %}
-					&nbsp; | &nbsp;
-					<span class="medium-light">Tags: </span>&nbsp;
-					{% for tag in post.tags.all %}
-					<a class="tag underline{{ tag.color }}" href="{{ tag.get_absolute_url }}"> {{ tag.title }}</a>
-					{% endfor %}
-					{% endif %}
-				</div>
-		    </header>
-	        <p>{{ post.text|safe|truncatewords:"50" }}
-		        {% ifnotequal post.text|truncatewords_html:50|length post.text|truncatewords_html:51|length %}
-		            <a class="underline" href="{{ post.get_absolute_url }}"> read more</a>
-	            {% endifnotequal %}
-	        </p>
-	      </article>
-      {% endfor %}
+	{% if posts %}
+		{% for post in posts %}
+			<article>
+				<header><h3><a class="black" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
 
-	  {% if posts.paginator.num_pages > 1 %}
-	  <div class="pagination center">
+					<div class="flex-inline">
+						<span class="medium-light">Posted:</span>
+						&nbsp;<span class="light">{{ post.date|date:"d M Y" }}</span>&nbsp;
+						<span class="medium-light">in</span>&nbsp;
+						<a class="underline light" href="{{ post.category.get_absolute_url }}">{{ post.category }}</a>
+						{% if post.tags.all %}
+							&nbsp; | &nbsp;
+							<span class="medium-light">Tags: </span>&nbsp;
+							{% for tag in post.tags.all %}
+								<a class="tag underline{{ tag.color }}"
+								   href="{{ tag.get_absolute_url }}"> {{ tag.title }}</a>
+							{% endfor %}
+						{% endif %}
+					</div>
+				</header>
+				<p>{{ post.text|safe|truncatewords:"50" }}
+					{% ifnotequal post.text|truncatewords_html:50|length post.text|truncatewords_html:51|length %}
+						<a class="underline" href="{{ post.get_absolute_url }}"> read more</a>
+					{% endifnotequal %}
+				</p>
+			</article>
+		{% endfor %}
+
+		{% if posts.paginator.num_pages > 1 %}
+			<div class="pagination center">
 	     <span class="step-links">
 	       <a href="{% if posts.has_previous %}?page={{ posts.previous_page_number }}{% endif %}">
-		       <button class="{% if posts.has_previous %}enabled{% endif %}"> < </button>
+		       <button class="{% if posts.has_previous %}enabled{% endif %}"> <</button>
 	       </a>
            <span class="current">
              <input value="{{ posts.number }}/{{ posts.paginator.num_pages }}" readonly>
            </span>
-           <a href="{% if posts.has_next %}?page={{  posts.next_page_number }}{% endif %}">
-	           <button class="{% if posts.has_next %}enabled{% endif %}"> > </button>
+           <a href="{% if posts.has_next %}?page={{ posts.next_page_number }}{% endif %}">
+	           <button class="{% if posts.has_next %}enabled{% endif %}"> ></button>
            </a>
          </span>
-	   </div>
-	   {% endif %}
+			</div>
+		{% endif %}
 
-    {% else %}
-        <p>There are no posts.</p>
-    {% endif %}
+	{% else %}
+		<p>There are no posts.</p>
+	{% endif %}
 	<div class="bottom-spacer"></div>
 {% endblock %}
