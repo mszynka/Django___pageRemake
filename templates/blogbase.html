@@ -8,6 +8,11 @@
 	{% load staticfiles %}
 	<link rel="shortcut icon" type="image/png" href="{% static 'blog/favicon.ico' %}"/>
 	<link rel="stylesheet" media="all" href="{% static 'blog/css/style.css' %}">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="{% static 'blog/js/codelisting.js' %}"></script>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 <div class="container">
