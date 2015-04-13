@@ -21,7 +21,7 @@
 							<span class="medium-light">Tags: </span>&nbsp;
 							{% for tag in post.tags.all %}
 								<a class="tag underline{{ tag.color }}"
-								   href="{{ tag.get_absolute_url }}"> {{ tag.title }}</a>
+                  href="{{ tag.get_absolute_url }}"> {{ tag.title }}</a>&nbsp;
 							{% endfor %}
 						{% endif %}
 					</div>
