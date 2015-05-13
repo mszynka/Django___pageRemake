@@ -176,3 +176,5 @@ target/
 # Custom
 settings*
 db.sqlite*
+*.sublime*
+simple_cms/static/blog

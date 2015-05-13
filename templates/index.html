@@ -28,26 +28,35 @@
 		</ul>
 	</nav>
 	<div class="services">
-		<a href="mailto:devmsw12@gmail.com"><img class="service" src="{% static 'thePage/images/icon1.svg' %}" alt="Email"></a>
+		<a href="mailto:devmsw12@gmail.com"><img class="service" src="{% static 'thePage/images/icon1.svg' %}"
+		                                         alt="Email"></a>
 		<a href="http://github.com/mszynka" target="_blank"><img class="service"
-		                                                         src="{% static 'thePage/images/icon2.svg' %}" alt="GitHub"></a>
+		                                                         src="{% static 'thePage/images/icon2.svg' %}"
+		                                                         alt="GitHub"></a>
 		<a href="http://www.linkedin.com/in/maszynka" target="_blank"><img class="service"
-		                                                                   src="{% static 'thePage/images/icon3.svg' %}" alt="LinkedIn"></a>
+		                                                                   src="{% static 'thePage/images/icon3.svg' %}"
+		                                                                   alt="LinkedIn"></a>
 	</div>
 </aside>
 <main>
-	{% if articles %}
-		{% for article in articles %}
-			<article class="center">
-				<header><h2 title="Posted {{ article.date }}">{{ article.title }}</h2></header>
-				{% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
-			</article>
-		{% endfor %}
-	{% else %}
-		<article class="center">
-			<header><h2>No articles available for this page!</h2></header>
-		</article>
-	{% endif %}
+	{% for item in menu %}
+		<section class="page-scroll" id="{{ item.name }}">
+
+			{% if articles %}
+				{% for piece in articles %}
+					{% for article in piece %}
+						{% if article.menu == item.name %}
+							<article class="center">
+								<header><h2 title="Posted {{ article.date }}">{{ article.title }}</h2></header>
+								{% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
+							</article>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+			{% endif %}
+
+		</section>
+	{% endfor %}
 </main>
 <footer>&copy; Mateusz Szynka 2015</footer>
 </body>
