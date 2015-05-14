@@ -1,0 +1,31 @@
+@media all and (orientation: landscape) and (min-width: 45em)
+   .page-nav
+      display: block !important
+
+   .article, .header
+      padding: 0 9em !important
+
+   .header
+      width: -webkit-calc(100% - 18em) !important
+      width: -moz-calc(100% - 18em) !important
+      width: calc(100% - 18em) !important
+
+@media all and (orientation: landscape) and (max-width: 45em)
+   .page-nav
+      display: none
+
+   .header
+      justify-content: center !important
+
+   .fp-controlArrow
+      display: none !important
+
+@media all and (orientation: portrait)
+   .page-nav
+      display: none
+
+   .header
+      justify-content: center !important
+
+   .fp-controlArrow
+      display: none !important

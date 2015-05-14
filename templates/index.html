@@ -1,67 +1,76 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Mateusz Szynka</title>
-	<meta name="author" content="Mateusz Szynka">
-	<meta charset="utf-8">
-	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-	<meta name="description" content="Programmer, webdesigner, C/C++, Django, (S)CSS, HTML">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	{% load staticfiles %}
-	<link rel="shortcut icon" type="image/png" href="{% static 'thePage/favicon.ico' %}"/>
-	<link rel="stylesheet" media="all and (orientation:landscape)" href="{% static 'thePage/css/landscape.css' %}">
-	<link rel="stylesheet" media="all and (orientation:portrait)" href="{% static 'thePage/css/portrait.css' %}">
+  <title>Mateusz Szynka</title>
+  <meta name="author" content="Mateusz Szynka">
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+  <meta name="description" content="Programmer, webdesigner, C/C++, Django, (S)CSS, HTML">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> {% load staticfiles %}
+  <link rel="shortcut icon" type="image/png" href="{% static 'thePage/favicon.ico' %}" />
+  <link rel="stylesheet" media="all" href="{% static 'thePage/css/normalize.css' %}">
+  <link rel="stylesheet" media="all" href="{% static 'thePage/css/jquery.fullPage.css' %}">
+  <link rel="stylesheet" media="all" href="{% static 'thePage/css/style.css' %}">
 </head>
+
 <body>
-<aside>
-	<nav>
-		<img id="face" max-width="400px" max-height="400px" src="{% static 'thePage/images/face.svg' %}" alt="The Face">
-
-		<h1 class="center" onclick="window.location = ''">{{ name }}</h1>
-		<ul>
-			{% for item in menu %}
-				<li><a class="{% if item.open %}open{% endif %}"
-				       href="{% if not item.open %}/{{ item.name }}/{% endif %}" title="{{ item.description }}"
-						>{{ item.name }}</a></li>
-			{% endfor %}
-			<li><a class="" href="/blog">blog</a></li>
-		</ul>
-	</nav>
-	<div class="services">
-		<a href="mailto:devmsw12@gmail.com"><img class="service" src="{% static 'thePage/images/icon1.svg' %}"
-		                                         alt="Email"></a>
-		<a href="http://github.com/mszynka" target="_blank"><img class="service"
-		                                                         src="{% static 'thePage/images/icon2.svg' %}"
-		                                                         alt="GitHub"></a>
-		<a href="http://www.linkedin.com/in/maszynka" target="_blank"><img class="service"
-		                                                                   src="{% static 'thePage/images/icon3.svg' %}"
-		                                                                   alt="LinkedIn"></a>
-	</div>
-</aside>
-<main>
-	{% for item in menu %}
-		<section class="page-scroll" id="{{ item.name }}">
-
-			{% if articles %}
-				{% for piece in articles %}
-					{% for article in piece %}
-						{% if article.menu == item.name %}
-							<article class="center">
-								<header><h2 title="Posted {{ article.date }}">{{ article.title }}</h2></header>
-								{% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
-							</article>
-						{% endif %}
-					{% endfor %}
-				{% endfor %}
-			{% endif %}
-
-		</section>
-	{% endfor %}
-</main>
-<footer>&copy; Mateusz Szynka 2015</footer>
+  <div id="header" class="header">
+    <div class="heading">
+      <img id="face" class="" style="display: none" width="200px" height="200px" src="{% static 'thePage/images/face.svg' %}" alt="The Face">
+      <h1 class="">{{ name }}</h1>
+    </div>
+    <nav class="page-nav" role="navigation" style="display: none">
+      <ul class="inline">
+        {% for item in menu %}
+        <li><a class="{% if item.open %}open{% endif %}" href="#{{ item.name }}" title="{{ item.description }}">{{ item.name }}</a></li>
+        {% endfor %}
+        <li><a class="external" href="/blog">blog</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!--<div class="services">
+    <a href="mailto:devmsw12@gmail.com">
+      <img class="service" width="30px" src="{% static 'thePage/images/icon1.svg' %}" alt="Email">
+    </a>
+    <a href="http://github.com/mszynka" target="_blank">
+      <img class="service" width="30px" src="{% static 'thePage/images/icon2.svg' %}" alt="GitHub">
+    </a>
+    <a href="http://www.linkedin.com/in/maszynka" target="_blank">
+      <img class="service" width="30px" src="{% static 'thePage/images/icon3.svg' %}" alt="LinkedIn">
+    </a>
+  </div>-->
+  <div id="fullpage" class="content" role="main">
+    {% for item in menu %}
+    <div class="section" data-anchor="{{ item.name }}">
+      {% if articles %} {% for piece in articles %} 
+      <div class="article center">
+        {% if piece|length > 1 %}
+        {% for article in piece %}{% if item.name == article.menu %}
+        <div style="width: 50%" class="slide">
+          {% if article.title %}<header><h2 title="Posted {{ article.date }}">{{ article.title }}</h2></header>{% endif %}
+          {% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
+        </div>
+        {% endif %}{% endfor %} 
+        {% else %}
+        {% for article in piece %}{% if item.name == article.menu %}
+        {% if article.title %}<header><h2 title="Posted {{ article.date }}">{{ article.title }}</h2></header>{% endif %}
+        {% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<footer style="display: none">&copy; Mateusz Szynka 2015</footer>
 </body>
-<!--<script type="text/javascript" src="{%  static 'thePage/js/angular.min.js' %}"></script>-->
-<!--<script type="text/javascript" src="{% static 'thePage/js/jquery-1.10.2.min.js' %}"></script>-->
-<!--<script type="text/javascript" src="{%  static 'thePage/js/jquery-ui.min.js' %}"></script>-->
-<!--<script type="text/javascript" src="{%  static 'thePage/js/scripts.js' %}"></script>-->
+<script type="text/javascript" src="{% static 'thePage/js/jquery-1.10.2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'thePage/js/jquery.slimscroll.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'thePage/js/jquery.easings.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'thePage/js/jquery.fullPage.js' %}"></script>
+<script type="text/javascript" src="{% static 'thePage/js/scripts.js' %}"></script>
+
 </html>

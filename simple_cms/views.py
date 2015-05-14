@@ -12,15 +12,17 @@ def page(request, specific):
 	menu = View.objects.filter(enabled=True)
 	services = Service.objects.all()
 	articles = list()
+	sections = 0
 
 	for item in menu:
 		if item.name == specific:
 			item.open = True
 		tmp_art = Article.objects.filter(view=item, posted=True)
+		sections += 1
 		for article in tmp_art:
 			article.menu = item.name
 		articles.append(tmp_art)
 
 	return render_to_response('index.html',
-	                          {"name": name, "menu": menu, "articles": articles},
+	                          {"name": name, "menu": menu, "articles": articles, "sections": sections},
 	                          context)
