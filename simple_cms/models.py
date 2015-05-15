@@ -39,7 +39,7 @@ class View(models.Model):
         return self.name
 
 class Article(models.Model):
-    title = models.CharField(max_length=100, blank=False)
+    title = models.CharField(max_length=100)
     paragraphs = RichTextField()
     view = models.ForeignKey(View, default=1)
     date = models.DateField(auto_now_add=True, blank=True)

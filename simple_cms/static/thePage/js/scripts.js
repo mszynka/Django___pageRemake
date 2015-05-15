@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  
+
   $('.section').each(function(index){
     $(this).attr('id', 'section-'+index);
     $('.slide').each(function(index){
@@ -42,6 +42,20 @@ $(document).ready(function(){
     fixedElements: '#header, .footer',
     responsive: 1,
     paddingTop: '0',
-    paddingBottom: '0'
+    paddingBottom: '0',
+
+    //events
+    onLeave: function(index, nextIndex, direction){
+      //$('.'+anchorLink).removeClass('loaded-opacity');
+      //$('.slide-more').removeClass('loaded-opacity');
+    },  
+    afterLoad: function(anchorLink, index){
+      $('.slide-more').addClass('loaded-opacity');
+      $('.'+anchorLink).addClass('loaded-opacity');
+    },
+    afterRender: function(){},
+    afterResize: function(){},
+    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
+    onSlideLeave: function(anchorLink, index, slideIndex, direction){}
   });
 });

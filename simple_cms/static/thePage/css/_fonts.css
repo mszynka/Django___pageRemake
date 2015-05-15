@@ -1,0 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Oxygen|Pacifico);
+body {
+  font-size: 10pt; }
+
+.header {
+  font-family: "Droid Sans", sans-serif; }
+
+.content {
+  font-family: "Oxygen", sans-serif; }
+
+/*# sourceMappingURL=_fonts.css.map */

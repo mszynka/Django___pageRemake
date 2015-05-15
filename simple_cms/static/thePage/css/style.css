@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans|Oxygen|Shadows+Into+Light);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Oxygen|Pacifico);
 html,
 body,
 div,
@@ -42,7 +42,10 @@ body {
     justify-content: center !important; }
 
   .fp-controlArrow {
-    display: none !important; } }
+    display: none !important; }
+
+  .may-be-hidden {
+    display: none; } }
 @media all and (orientation: portrait) {
   .page-nav {
     display: none; }
@@ -51,7 +54,10 @@ body {
     justify-content: center !important; }
 
   .fp-controlArrow {
-    display: none !important; } }
+    display: none !important; }
+
+  .may-be-hidden {
+    display: none; } }
 body {
   color: #777; }
 
@@ -67,8 +73,20 @@ a {
 .article, .heading {
   padding: 0 1em; }
 
+#section-0 .article {
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.46); }
+
 .article {
-  font-size: 1.15em; }
+  font-size: 1.15em;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out; }
+
+.loaded-opacity {
+  opacity: 1 !important; }
 
 .header {
   background: -moz-linear-gradient(top, rgba(226, 244, 255, 0.85) 0%, rgba(240, 249, 255, 0.7) 99%, rgba(240, 249, 255, 0.7) 100%);
@@ -129,6 +147,10 @@ a {
 .center {
   text-align: center; }
 
+.img-max-size {
+  max-width: 75vw;
+  max-height: 75vh; }
+
 .slide-more {
   color: #aaa;
   position: absolute;
@@ -137,7 +159,14 @@ a {
   margin-right: -50%;
   transform: translate(-50%, -50%);
   line-height: 0.7;
-  text-align: center; }
+  text-align: center;
+  text-shadow: 1px 1px 10px rgba(7, 7, 7, 0.7);
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out; }
   .slide-more span {
     font-size: 1.8em;
     font-weight: bold;
@@ -147,20 +176,21 @@ a {
     transform: scale(1.7, 0.28); }
 
 #section-0 {
-  background: -moz-linear-gradient(-45deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg");
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(0, 0, 0, 0.251)), color-stop(100%, rgba(0, 0, 0, 0.251))), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg");
-  background: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg");
-  background: -o-linear-gradient(-45deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg");
-  background: -ms-linear-gradient(-45deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg");
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg");
+  background: -moz-linear-gradient(-45deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg") no-repeat fixed center center;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(0, 0, 0, 0.251)), color-stop(100%, rgba(0, 0, 0, 0.251))), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg") no-repeat fixed center center;
+  background: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg") no-repeat fixed center center;
+  background: -o-linear-gradient(-45deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg") no-repeat fixed center center;
+  background: -ms-linear-gradient(-45deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg") no-repeat fixed center center;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.251) 0%, rgba(0, 0, 0, 0.251) 100%), url("http://www.fastwallz.com/wp-content/uploads/2014/09/Beautiful-Mountain-Peak-2.jpg") no-repeat fixed center;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70ffffff', endColorstr='#3dffffff',GradientType=1 );
+  background-size: cover;
   color: #222;
   text-shadow: inset 0 0 0.7em #888; }
   #section-0 a {
     color: #222; }
   #section-0 .article {
     position: relative;
-    bottom: 18%; }
+    top: -20%; }
     #section-0 .article h2 {
       font-size: 2.7em; }
     #section-0 .article p {
@@ -170,9 +200,19 @@ a {
     color: #fff; }
 
 #section-1 {
-  background: #4DA3FE; }
+  background: #78D580;
+  color: #222; }
+  #section-1 header {
+    font-family: "Pacifico", cursive;
+    font-size: 2em;
+    text-align: left; }
+  #section-1 a {
+    color: #222; }
 
 #section-2 {
   background: #E6B94C; }
+
+#section-3 {
+  background: #4DA3FE; }
 
 /*# sourceMappingURL=style.css.map */

@@ -18,14 +18,15 @@
   <div id="header" class="header">
     <div class="heading">
       <img id="face" class="" style="display: none" width="200px" height="200px" src="{% static 'thePage/images/face.svg' %}" alt="The Face">
-      <h1 class="">{{ name }}</h1>
+      <a href="/" style="text-decoration: none"><h1 class="">{{ name }}</h1></a>
     </div>
     <nav class="page-nav" role="navigation" style="display: none">
       <ul class="inline">
         {% for item in menu %}
         <li><a class="{% if item.open %}open{% endif %}" href="#{{ item.name }}" title="{{ item.description }}">{{ item.name }}</a></li>
         {% endfor %}
-        <li><a class="external" href="/blog">blog</a></li>
+        <li><a class="external" href="/workshop" title="latest projects">workshop</a></li>
+        <li><a class="external" href="/blog" title="developer backyard">blog</a></li>
       </ul>
     </nav>
   </div>
@@ -44,7 +45,7 @@
     {% for item in menu %}
     <div class="section" data-anchor="{{ item.name }}">
       {% if articles %} {% for piece in articles %} 
-      <div class="article center">
+      <div class="article center {{ item.name }}">
         {% if piece|length > 1 %}
         {% for article in piece %}{% if item.name == article.menu %}
         <div style="width: 50%" class="slide">
