@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 
 <head>
   <title>Mateusz Szynka</title>
@@ -22,10 +22,10 @@
     </div>
     <nav class="page-nav" role="navigation" style="display: none">
       <ul class="inline">
-        {% for item in menu %}
+        {% for item in menu %}{% if item.name != "code"  %}
         <li><a class="{% if item.open %}open{% endif %}" href="#{{ item.name }}" title="{{ item.description }}">{{ item.name }}</a></li>
-        {% endfor %}
-        <li><a class="external" href="/workshop" title="latest projects">workshop</a></li>
+        {% endif %}{% endfor %}
+        <!--<li><a class="external" href="/workshop" title="latest projects">workshop</a></li>-->
         <li><a class="external" href="/blog" title="developer backyard">blog</a></li>
       </ul>
     </nav>
@@ -42,9 +42,9 @@
     </a>
   </div>-->
   <div id="fullpage" class="content" role="main">
-    {% for item in menu %}
-    <div class="section" data-anchor="{{ item.name }}">
-      {% if articles %} {% for piece in articles %} 
+    {% for item in menu %}{% if articles and item.name != "code" %}
+    <div class="section {{ item.name }}-section" data-anchor="{{ item.name }}">
+      {% for piece in articles %} 
       <div class="article center {{ item.name }}">
         {% if piece|length > 1 %}
         {% for article in piece %}{% if item.name == article.menu %}
@@ -52,18 +52,15 @@
           {% if article.title %}<header><h2 title="Posted {{ article.date }}">{{ article.title }}</h2></header>{% endif %}
           {% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
         </div>
-        {% endif %}{% endfor %} 
-        {% else %}
+        {% endif %}{% endfor %}{% else %}
         {% for article in piece %}{% if item.name == article.menu %}
         {% if article.title %}<header><h2 title="Posted {{ article.date }}">{{ article.title }}</h2></header>{% endif %}
         {% autoescape off %}{{ article.paragraphs }}{% endautoescape %}
-        {% endif %}
-        {% endfor %}
-        {% endif %}
+        {% endif %}{% endfor %}{% endif %}
       </div>
-      {% endfor %} {% endif %}
+      {% endfor %} 
     </div>
-    {% endfor %}
+    {% endif %}{% endfor %}
   </div>
 </div>
 <footer style="display: none">&copy; Mateusz Szynka 2015</footer>

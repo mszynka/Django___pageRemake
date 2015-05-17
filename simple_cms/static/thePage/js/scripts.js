@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+  $('.no-js').removeClass('no-js');
   $('.section').each(function(index){
     $(this).attr('id', 'section-'+index);
     $('.slide').each(function(index){
